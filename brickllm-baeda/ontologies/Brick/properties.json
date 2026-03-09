@@ -1,0 +1,1873 @@
+{
+    "https://w3id.org/rec#ServiceObject": {
+        "https://w3id.org/rec#closedTime": [
+            "http://www.w3.org/2001/XMLSchema#dateTime"
+        ],
+        "https://w3id.org/rec#createdTime": [
+            "http://www.w3.org/2001/XMLSchema#dateTime"
+        ],
+        "https://w3id.org/rec#acknowledgedBy": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#status": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#relatedTo": [
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#createdBy": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#severity": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#producedBy": [
+            "https://brickschema.org/schema/Brick#Point",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#acknowledgedTime": [
+            "http://www.w3.org/2001/XMLSchema#dateTime"
+        ],
+        "https://w3id.org/rec#closedBy": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://w3id.org/rec#Architecture": {
+        "https://w3id.org/rec#adjacentElement": [
+            "https://w3id.org/rec#BuildingElement",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#area": [
+            "https://w3id.org/rec#ArchitectureArea",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#hasPoint": [
+            "https://brickschema.org/schema/Brick#Point",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#capacity": [
+            "https://w3id.org/rec#ArchitectureCapacity",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#operatedBy": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#containsElement": [
+            "https://w3id.org/rec#BuildingElement",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#constructedBy": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#architectedBy": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#address": [
+            "https://w3id.org/rec#PostalAddress",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#ownedBy": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#intersectingElement": [
+            "https://w3id.org/rec#BuildingElement",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#isFedBy": [
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#documentation": [
+            "https://w3id.org/rec#Document",
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://brickschema.org/schema/Brick/ref#TimeseriesReference": {
+        "https://brickschema.org/schema/Brick/ref#storedAt": [
+            "http://www.w3.org/ns/shacl#IRIOrLiteral"
+        ],
+        "https://brickschema.org/schema/Brick/ref#hasTimeseriesId": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Equipment": {
+        "https://brickschema.org/schema/Brick#electricalPhaseCount": {
+            "https://brickschema.org/schema/Brick#value": [
+                "1",
+                "Total",
+                "3",
+                "2"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#operationalStageCount": {
+            "https://brickschema.org/schema/Brick#value": [
+                "1",
+                "4",
+                "3",
+                "2"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#ratedMaximumCurrentInput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#ratedVoltageOutput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#ratedCurrentInput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#ratedMinimumVoltageOutput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#ratedMinimumCurrentInput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#measuredPowerOutput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#ratedVoltageInput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#tilt": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/GRAD",
+                "http://qudt.org/vocab/unit/DEG",
+                "http://qudt.org/vocab/unit/2PiRAD",
+                "http://qudt.org/vocab/unit/ARCSEC",
+                "http://qudt.org/vocab/unit/MicroRAD",
+                "http://qudt.org/vocab/unit/RAD",
+                "http://qudt.org/vocab/unit/REV",
+                "http://qudt.org/vocab/unit/MilliARCSEC",
+                "http://qudt.org/vocab/unit/MIN_Angle",
+                "http://qudt.org/vocab/unit/MilliRAD",
+                "http://qudt.org/vocab/unit/ARCMIN",
+                "http://qudt.org/vocab/unit/GON",
+                "http://qudt.org/vocab/unit/MIL"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#coordinates": {
+            "https://brickschema.org/schema/Brick#latitude": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ],
+            "https://brickschema.org/schema/Brick#longitude": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#ratedMaximumVoltageOutput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#ratedPowerInput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#ratedCurrentOutput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#operationalStage": {
+            "https://brickschema.org/schema/Brick#value": [
+                "1",
+                "4",
+                "3",
+                "2"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#panelArea": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/M2",
+                "http://qudt.org/vocab/unit/FT2"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#electricalComplexPower": {
+            "https://brickschema.org/schema/Brick#value": [
+                "reactive",
+                "apparent",
+                "real"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#ratedMaximumCurrentOutput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#electricalPhases": {
+            "https://brickschema.org/schema/Brick#value": [
+                "AC",
+                "B",
+                "C",
+                "A",
+                "ABC",
+                "BC",
+                "AB"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#temperatureCoefficientofPmax": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/PERCENT"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#ratedPowerOutput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#ratedMinimumVoltageInput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#azimuth": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/GRAD",
+                "http://qudt.org/vocab/unit/DEG",
+                "http://qudt.org/vocab/unit/2PiRAD",
+                "http://qudt.org/vocab/unit/ARCSEC",
+                "http://qudt.org/vocab/unit/MicroRAD",
+                "http://qudt.org/vocab/unit/RAD",
+                "http://qudt.org/vocab/unit/REV",
+                "http://qudt.org/vocab/unit/MilliARCSEC",
+                "http://qudt.org/vocab/unit/MIN_Angle",
+                "http://qudt.org/vocab/unit/MilliRAD",
+                "http://qudt.org/vocab/unit/ARCMIN",
+                "http://qudt.org/vocab/unit/GON",
+                "http://qudt.org/vocab/unit/MIL"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#ratedMaximumVoltageInput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#volume": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/M3",
+                "http://qudt.org/vocab/unit/FT3"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#measuredPowerInput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        },
+        "https://brickschema.org/schema/Brick#electricalFlow": {
+            "https://brickschema.org/schema/Brick#value": [
+                "absolute",
+                "import",
+                "export",
+                "net"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#currentFlowType": {
+            "https://brickschema.org/schema/Brick#value": [
+                "DC",
+                "AC"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#conversionEfficiency": {
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ],
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/PERCENT"
+            ]
+        },
+        "https://w3id.org/rec#isFedBy": [
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://brickschema.org/schema/Brick#ratedMinimumCurrentOutput": {
+            "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": []
+        }
+    },
+    "https://w3id.org/rec#Agent": {
+        "https://w3id.org/rec#isMemberOf": [
+            "http://www.w3.org/ns/shacl#IRI",
+            "https://w3id.org/rec#Organization"
+        ],
+        "https://w3id.org/rec#owns": [
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://w3id.org/rec#Asset": {
+        "https://w3id.org/rec#installedBy": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#hasPoint": [
+            "https://brickschema.org/schema/Brick#Point",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#modelNumber": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#locatedIn": [
+            "https://w3id.org/rec#Space",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#installationDate": [
+            "http://www.w3.org/2001/XMLSchema#date"
+        ],
+        "https://w3id.org/rec#serialNumber": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#IPAddress": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#turnoverDate": [
+            "http://www.w3.org/2001/XMLSchema#date"
+        ],
+        "https://w3id.org/rec#mountedOn": [
+            "https://w3id.org/rec#BuildingElement",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#maintenanceInterval": [
+            "http://www.w3.org/2001/XMLSchema#duration"
+        ],
+        "https://w3id.org/rec#assetTag": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#manufacturedBy": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#MACAddress": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#servicedBy": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#weight": [
+            "http://www.w3.org/2001/XMLSchema#decimal"
+        ],
+        "https://w3id.org/rec#initialCost": [
+            "http://www.w3.org/ns/shacl#Literal"
+        ],
+        "https://w3id.org/rec#commissionedBy": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#documentation": [
+            "https://w3id.org/rec#Document",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#commissioningDate": [
+            "http://www.w3.org/2001/XMLSchema#date"
+        ]
+    },
+    "https://w3id.org/rec#ArchitectureArea": {
+        "https://w3id.org/rec#netArea": [
+            "http://www.w3.org/2001/XMLSchema#float"
+        ],
+        "https://w3id.org/rec#rentableArea": [
+            "http://www.w3.org/2001/XMLSchema#float"
+        ],
+        "https://w3id.org/rec#grossArea": [
+            "http://www.w3.org/2001/XMLSchema#float"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Building": {
+        "https://brickschema.org/schema/Brick#buildingPrimaryFunction": {
+            "https://brickschema.org/schema/Brick#value": [
+                "Other - Mall",
+                "Movie Theater",
+                "Fast Food Restaurant",
+                "Bank Branch",
+                "Other - Restaurant/Bar",
+                "Other - Services",
+                "Wastewater Treatment Plant",
+                "Performing Arts",
+                "Medical Office",
+                "Library",
+                "Multifamily Housing",
+                "Refrigerated Warehouse",
+                "Food Sales",
+                "Residence Hall/Dormitory",
+                "Other - Utility",
+                "Casino",
+                "Other - Technology/Science",
+                "Laboratory",
+                "Repair Services (Vehicle, Shoe, Locksmith, etc)",
+                "Ambulatory Surgical Center",
+                "Outpatient Rehabilitation/Physical Therapy",
+                "Parking",
+                "Drinking Water Treatment & Distribution",
+                "Roller Rink",
+                "Office",
+                "Food Service",
+                "Pre-school/Daycare",
+                "Other/Specialty Hospital",
+                "Museum",
+                "Adult Education",
+                "Courthouse",
+                "Barracks",
+                "Restaurant",
+                "Stadium (Open)",
+                "Bowling Alley",
+                "Distribution Center",
+                "Personal Services (Health/Beauty, Dry Cleaning, etc)",
+                "Hospital (General Medical & Surgical)",
+                "Other",
+                "Urgent Care/Clinic/Other Outpatient",
+                "Mixed Use Property",
+                "Mailing Center/Post Office",
+                "Manufacturing/Industrial Plant",
+                "Supermarket/Grocery Store",
+                "Bar/Nightclub",
+                "Vocational School",
+                "Indoor Arena",
+                "Hotel",
+                "Wholesale Club/Supercenter",
+                "Data Center",
+                "Veterinary Office",
+                "Other - Education",
+                "Other - Public Services",
+                "Prison/Incarceration",
+                "Retail Store",
+                "Financial Office",
+                "Enclosed Mall",
+                "Fitness Center/Health Club/Gym",
+                "Zoo",
+                "Other - Recreation",
+                "Other - Lodging/Residential",
+                "K-12 School",
+                "Swimming Pool",
+                "Stadium (Closed)",
+                "Other - Entertainment/Public Assembly",
+                "Self-Storage Facility",
+                "Aquarium",
+                "College/University",
+                "Worship Facility",
+                "Automobile Dealership",
+                "Senior Care Community",
+                "Lifestyle Center",
+                "Ice/Curling Rink",
+                "Single Family Home",
+                "Convention Center",
+                "Convenience Store without Gas Station",
+                "Other - Stadium",
+                "Social/Meeting Hall",
+                "Race Track",
+                "Non-Refrigerated Warehouse",
+                "Energy/Power Station",
+                "Transportation Terminal/Station",
+                "Convenience Store with Gas Station",
+                "Police Station",
+                "Fire Station",
+                "Strip Mall"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#yearBuilt": {
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#buildingThermalTransmittance": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/W-PER-M2-K",
+                "http://qudt.org/vocab/unit/BTU_IT"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Wireless_Access_Point": {
+        "https://w3id.org/rec#generation": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://w3id.org/rec#WirelessAccessPoint": {
+        "https://w3id.org/rec#generation": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://w3id.org/rec#PostalAddress": {
+        "https://w3id.org/rec#city": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#addressLine1": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#country": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#region": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#addressLine2": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#postalCode": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Power_Factor_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Heat_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Usage_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Enthalpy_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Status": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Capacity_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Occupancy_Count_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Piezoelectric_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Direction_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Pressure_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Setpoint": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Duration_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Solar_Radiance_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Angle_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Alarm": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Absolute_Humidity_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Water_Level_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Voltage_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Frost_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Air_Grains_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Relative_Humidity_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Dewpoint_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Luminance_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Refrigerant_Level_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Air_Quality_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Imbalance_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Parameter": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Current_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Motion_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Point": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#resolution": {
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#aggregate": {
+            "https://brickschema.org/schema/Brick#aggregationFunction": [
+                "median",
+                "count",
+                "max",
+                "mode",
+                "mean",
+                "sum",
+                "min"
+            ],
+            "https://brickschema.org/schema/Brick#aggregationInterval": [
+                "http://www.w3.org/2001/XMLSchema#string"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#electricalComplexPower": {
+            "https://brickschema.org/schema/Brick#value": [
+                "reactive",
+                "apparent",
+                "real"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#electricalFlow": {
+            "https://brickschema.org/schema/Brick#value": [
+                "absolute",
+                "import",
+                "export",
+                "net"
+            ]
+        },
+        "https://brickschema.org/schema/Brick/ref#hasExternalReference": [
+            "https://brickschema.org/schema/Brick/ref#TimeseriesReference"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Demand_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Contact_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Flow_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Fire_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Gas_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Power_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Energy_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Generation_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Temperature_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Command": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/BrickShape#OneLastKnownValuePerEntity": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Rain_Level_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Position_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Frequency_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Illuminance_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Occupancy_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Torque_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Speed_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Adjust_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Conductivity_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Hail_Sensor": {
+        "https://brickschema.org/schema/Brick#lastKnownValue": {
+            "https://brickschema.org/schema/Brick#value": [],
+            "https://brickschema.org/schema/Brick#timestamp": [
+                "http://www.w3.org/2001/XMLSchema#dateTime"
+            ]
+        }
+    },
+    "https://w3id.org/rec#Geotransform": {
+        "https://w3id.org/rec#heightScaleFactor": [
+            "http://www.w3.org/2001/XMLSchema#double"
+        ],
+        "https://w3id.org/rec#widthScaleFactor": [
+            "http://www.w3.org/2001/XMLSchema#double"
+        ],
+        "https://w3id.org/rec#xRotationalScaleFactor": [
+            "http://www.w3.org/2001/XMLSchema#double"
+        ],
+        "https://w3id.org/rec#yRotationalScaleFactor": [
+            "http://www.w3.org/2001/XMLSchema#double"
+        ],
+        "https://w3id.org/rec#originY": [
+            "http://www.w3.org/2001/XMLSchema#double"
+        ],
+        "https://w3id.org/rec#originX": [
+            "http://www.w3.org/2001/XMLSchema#double"
+        ]
+    },
+    "https://w3id.org/rec#ICTEquipment": {
+        "https://w3id.org/rec#numberOfPorts": [
+            "http://www.w3.org/2001/XMLSchema#integer"
+        ],
+        "https://w3id.org/rec#heightRUs": [
+            "http://www.w3.org/2001/XMLSchema#integer"
+        ],
+        "https://w3id.org/rec#standard": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#ICT_Equipment": {
+        "https://w3id.org/rec#numberOfPorts": [
+            "http://www.w3.org/2001/XMLSchema#integer"
+        ],
+        "https://w3id.org/rec#heightRUs": [
+            "http://www.w3.org/2001/XMLSchema#integer"
+        ],
+        "https://w3id.org/rec#standard": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://w3id.org/rec#Document": {
+        "https://w3id.org/rec#url": [
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#documentTopic": [
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://w3id.org/rec#EthernetPort": {
+        "https://w3id.org/rec#portSpeed": [
+            "http://www.w3.org/2001/XMLSchema#float"
+        ],
+        "https://w3id.org/rec#poeType": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Ethernet_Port": {
+        "https://w3id.org/rec#portSpeed": [
+            "http://www.w3.org/2001/XMLSchema#float"
+        ],
+        "https://w3id.org/rec#poeType": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://w3id.org/rec#ActuationEvent": {
+        "https://w3id.org/rec#targetPoint": [
+            "https://brickschema.org/schema/Brick#Point",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#BuildingElement": {
+        "https://w3id.org/rec#locatedIn": [
+            "https://w3id.org/rec#Space",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#documentation": [
+            "https://w3id.org/rec#Document",
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://w3id.org/rec#Lease": {
+        "https://w3id.org/rec#regulatedBy": [
+            "https://w3id.org/rec#LeaseContract",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#leaseOf": [
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#leasor": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#leasee": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://w3id.org/rec#Person": {
+        "https://w3id.org/rec#familyName": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#gender": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#image": [
+            "http://www.w3.org/2001/XMLSchema#anyURI"
+        ],
+        "https://w3id.org/rec#givenName": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://w3id.org/rec#MagneticFluxObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#InductanceObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#VelocityObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#EnergyObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#AreaObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#IntegerValueObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#ForceObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#RelativeHumidityObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#FrequencyObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#PowerObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#MassObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#DataSizeObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#TimeSpanObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#VolumeObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#DataRateObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#LuminousFluxObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#TorqueObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#AngleObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#ResistanceObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#SoundPressureObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#AccelerationObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#AbsoluteHumidityObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#LengthObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#ElectricCurrentObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#AngularAccelerationObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#ElectricChargeObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#DensityObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#LuminanceObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#VoltageObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#VolumeFlowRateObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#DoubleValueObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#ThrustObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#DistanceObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#BooleanValueObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#IlluminanceObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#CapacitanceObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#LuminousIntensityObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#ExceptionEvent": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ],
+        "https://w3id.org/rec#sourcePoint": [
+            "https://brickschema.org/schema/Brick#Point",
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://w3id.org/rec#MassFlowRateObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#TemperatureObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#AngularVelocityObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://w3id.org/rec#PressureObservation": {
+        "https://w3id.org/rec#value": [
+            "http://www.w3.org/2001/XMLSchema#integer",
+            "http://www.w3.org/2001/XMLSchema#double",
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/2001/XMLSchema#boolean"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Station": {
+        "https://brickschema.org/schema/Brick#electricVehicleChargerType": {
+            "https://brickschema.org/schema/Brick#value": [
+                "Level 3",
+                "Level 1",
+                "Level 2"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#electricVehicleChargerDirectionality": {
+            "https://brickschema.org/schema/Brick#value": [
+                "unidirectional",
+                "bidirectional"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#PV_Panel": {
+        "https://brickschema.org/schema/Brick#measuredModuleConversionEfficiency": {
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ],
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/PERCENT"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#ratedModuleConversionEfficiency": {
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ],
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/PERCENT"
+            ]
+        }
+    },
+    "https://w3id.org/rec#SensorEquipment": {
+        "https://w3id.org/rec#batteryPercentage": [
+            "http://www.w3.org/2001/XMLSchema#double"
+        ],
+        "https://w3id.org/rec#wifiSignalStrength": [
+            "http://www.w3.org/2001/XMLSchema#double"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Sensor_Equipment": {
+        "https://w3id.org/rec#batteryPercentage": [
+            "http://www.w3.org/2001/XMLSchema#double"
+        ],
+        "https://w3id.org/rec#wifiSignalStrength": [
+            "http://www.w3.org/2001/XMLSchema#double"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Meter": {
+        "https://brickschema.org/schema/Brick#isVirtualMeter": {
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#boolean"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick/ref#IFCReference": {
+        "https://brickschema.org/schema/Brick/ref#ifcName": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://brickschema.org/schema/Brick/ref#hasIfcProjectReference": [
+            "https://brickschema.org/schema/Brick/ref#ifcProject"
+        ],
+        "https://brickschema.org/schema/Brick/ref#ifcGlobalID": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://w3id.org/rec#Portfolio": {
+        "https://w3id.org/rec#includes": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#PV_Panel",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI",
+            "https://w3id.org/rec#Room",
+            "https://w3id.org/rec#Furniture"
+        ]
+    },
+    "https://w3id.org/rec#Premises": {
+        "https://w3id.org/rec#includes": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#PV_Panel",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI",
+            "https://w3id.org/rec#Room",
+            "https://w3id.org/rec#Furniture"
+        ]
+    },
+    "https://w3id.org/rec#RealEstate": {
+        "https://w3id.org/rec#includes": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#PV_Panel",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI",
+            "https://w3id.org/rec#Room",
+            "https://w3id.org/rec#Furniture"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Loop": {
+        "https://w3id.org/rec#includes": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#PV_Panel",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI",
+            "https://w3id.org/rec#Room",
+            "https://w3id.org/rec#Furniture"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Collection": {
+        "https://w3id.org/rec#includes": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#PV_Panel",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI",
+            "https://w3id.org/rec#Room",
+            "https://w3id.org/rec#Furniture"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#PV_Array": {
+        "https://w3id.org/rec#includes": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#PV_Panel",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI",
+            "https://w3id.org/rec#Room",
+            "https://w3id.org/rec#Furniture"
+        ]
+    },
+    "https://w3id.org/rec#Apartment": {
+        "https://w3id.org/rec#includes": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#PV_Panel",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI",
+            "https://w3id.org/rec#Room",
+            "https://w3id.org/rec#Furniture"
+        ]
+    },
+    "https://w3id.org/rec#EquipmentCollection": {
+        "https://w3id.org/rec#includes": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#PV_Panel",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI",
+            "https://w3id.org/rec#Room",
+            "https://w3id.org/rec#Furniture"
+        ]
+    },
+    "https://w3id.org/rec#Campus": {
+        "https://w3id.org/rec#includes": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#PV_Panel",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI",
+            "https://w3id.org/rec#Room",
+            "https://w3id.org/rec#Furniture"
+        ]
+    },
+    "https://w3id.org/rec#FurnitureCollection": {
+        "https://w3id.org/rec#includes": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#PV_Panel",
+            "https://w3id.org/rec#Architecture",
+            "http://www.w3.org/ns/shacl#IRI",
+            "https://w3id.org/rec#Room",
+            "https://w3id.org/rec#Furniture"
+        ]
+    },
+    "https://w3id.org/rec#ElevatorTrip": {
+        "https://w3id.org/rec#tripDirection": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#currentLevel": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#endLevel": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://w3id.org/rec#startLevel": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Port": {
+        "https://brickschema.org/schema/Brick#electricVehicleConnectorType": {
+            "https://brickschema.org/schema/Brick#value": [
+                "Type 2 (CSS)",
+                "CHAdeMO",
+                "Tesla Supercharger",
+                "Type 2 (IEC 62196)",
+                "CCS (Combined Charging System)",
+                "Type 1 (CSS)",
+                "Wireless",
+                "Type 1 (SAE J1772)",
+                "GB/T"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#electricVehicleChargerDirectionality": {
+            "https://brickschema.org/schema/Brick#value": [
+                "unidirectional",
+                "bidirectional"
+            ]
+        }
+    },
+    "https://brickschema.org/schema/Brick#Location": {
+        "https://brickschema.org/schema/Brick#coordinates": {
+            "https://brickschema.org/schema/Brick#latitude": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ],
+            "https://brickschema.org/schema/Brick#longitude": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#thermalTransmittance": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/W-PER-M2-K",
+                "http://qudt.org/vocab/unit/BTU_IT"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#grossArea": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/M2",
+                "http://qudt.org/vocab/unit/FT2"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#volume": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/M3",
+                "http://qudt.org/vocab/unit/FT3"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#area": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/M2",
+                "http://qudt.org/vocab/unit/FT2"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        },
+        "https://brickschema.org/schema/Brick#netArea": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/M2",
+                "http://qudt.org/vocab/unit/FT2"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        }
+    },
+    "https://w3id.org/rec#Event": {
+        "https://w3id.org/rec#end": [
+            "http://www.w3.org/2001/XMLSchema#dateTime"
+        ],
+        "https://w3id.org/rec#start": [
+            "http://www.w3.org/2001/XMLSchema#dateTime"
+        ],
+        "https://w3id.org/rec#timestamp": [
+            "http://www.w3.org/2001/XMLSchema#dateTime"
+        ]
+    },
+    "https://w3id.org/rec#Space": {
+        "https://w3id.org/rec#isLocationOf": [
+            "http://www.w3.org/ns/shacl#IRI"
+        ],
+        "https://w3id.org/rec#georeference": [
+            "https://w3id.org/rec#Georeference",
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://w3id.org/rec#ArchitectureCapacity": {
+        "https://w3id.org/rec#maxOccupancy": [
+            "http://www.w3.org/2001/XMLSchema#integer"
+        ],
+        "https://w3id.org/rec#seatingCapacity": [
+            "http://www.w3.org/2001/XMLSchema#integer"
+        ]
+    },
+    "https://w3id.org/rec#ObservationEvent": {
+        "https://w3id.org/rec#sourcePoint": [
+            "https://brickschema.org/schema/Brick#Point",
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://w3id.org/rec#PointOfInterest": {
+        "https://w3id.org/rec#objectOfInterest": [
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://brickschema.org/schema/BrickShape#AggregationShape": {
+        "https://brickschema.org/schema/Brick#aggregationInterval": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://w3id.org/rec#Organization": {
+        "https://w3id.org/rec#logo": [
+            "http://www.w3.org/2001/XMLSchema#anyURI"
+        ],
+        "https://w3id.org/rec#hasMember": [
+            "https://w3id.org/rec#Agent",
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://w3id.org/rec#LeaseContract": {
+        "https://w3id.org/rec#regulates": [
+            "https://w3id.org/rec#Lease",
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    },
+    "https://brickschema.org/schema/Brick/ref#PreferredShape": {
+        "https://brickschema.org/schema/Brick/ref#hasExternalReference": []
+    },
+    "https://w3id.org/rec#Geometry": {
+        "https://w3id.org/rec#coordinateSystem": [
+            "http://www.w3.org/2001/XMLSchema#string",
+            "http://www.w3.org/ns/shacl#Literal"
+        ]
+    },
+    "https://brickschema.org/schema/Brick/ref#BACnetReference": {
+        "http://data.ashrae.org/bacnet/2020#objectOf": [
+            "http://data.ashrae.org/bacnet/2020#BACnetDevice"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Chiller": {
+        "https://brickschema.org/schema/Brick#coolingCapacity": {
+            "https://brickschema.org/schema/Brick#hasUnit": [
+                "http://qudt.org/vocab/unit/W",
+                "http://qudt.org/vocab/unit/BTU_IT-PER-HR",
+                "http://qudt.org/vocab/unit/TON_FG",
+                "http://qudt.org/vocab/unit/BTU_TH-PER-HR"
+            ],
+            "https://brickschema.org/schema/Brick#value": [
+                "http://www.w3.org/2001/XMLSchema#double",
+                "http://www.w3.org/2001/XMLSchema#float",
+                "http://www.w3.org/2001/XMLSchema#integer",
+                "http://www.w3.org/2001/XMLSchema#decimal"
+            ]
+        }
+    },
+    "https://w3id.org/rec#Point": {
+        "https://w3id.org/rec#coordinates": [
+            "https://geojson.org/Point",
+            "https://geojson.org/MultiPoint",
+            "https://geojson.org/Polygon",
+            "https://geojson.org/MultiPolygon"
+        ]
+    },
+    "https://w3id.org/rec#MultiPoint": {
+        "https://w3id.org/rec#coordinates": [
+            "https://geojson.org/Point",
+            "https://geojson.org/MultiPoint",
+            "https://geojson.org/Polygon",
+            "https://geojson.org/MultiPolygon"
+        ]
+    },
+    "https://w3id.org/rec#Polygon": {
+        "https://w3id.org/rec#coordinates": [
+            "https://geojson.org/Point",
+            "https://geojson.org/MultiPoint",
+            "https://geojson.org/Polygon",
+            "https://geojson.org/MultiPolygon"
+        ]
+    },
+    "https://w3id.org/rec#MultiPolygon": {
+        "https://w3id.org/rec#coordinates": [
+            "https://geojson.org/Point",
+            "https://geojson.org/MultiPoint",
+            "https://geojson.org/Polygon",
+            "https://geojson.org/MultiPolygon"
+        ]
+    },
+    "https://brickschema.org/schema/Brick/ref#ifcProject": {
+        "https://brickschema.org/schema/Brick/ref#ifcProjectID": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ],
+        "https://brickschema.org/schema/Brick/ref#ifcFileLocation": [
+            "http://www.w3.org/2001/XMLSchema#string"
+        ]
+    },
+    "https://w3id.org/rec#Level": {
+        "https://w3id.org/rec#levelNumber": [
+            "http://www.w3.org/2001/XMLSchema#integer"
+        ]
+    },
+    "https://w3id.org/rec#Collection": {
+        "https://w3id.org/rec#documentation": [
+            "https://w3id.org/rec#Document",
+            "http://www.w3.org/ns/shacl#IRI"
+        ]
+    }
+}

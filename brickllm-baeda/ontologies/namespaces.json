@@ -1,0 +1,20 @@
+{
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "rec": "https://w3id.org/rec#",
+    "s223": "http://data.ashrae.org/standard223#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudtqk": "http://qudt.org/vocab/quantitykind/",
+    "brick": "https://brickschema.org/schema/Brick#",
+    "ref": "https://brickschema.org/schema/Brick/ref#",
+    "saref": "https://w3id.org/saref#",
+    "s4bldg": "https://w3id.org/def/saref4bldg#",
+    "s4syst": "https://w3id.org/def/saref4syst#",
+    "s4ener": "https://w3id.org/saref4ener#",
+    "s4grid": "https://w3id.org/saref4grid#"
+}

@@ -1,0 +1,323 @@
+{
+    "https://brickschema.org/schema/Brick#Entity": {
+        "https://brickschema.org/schema/Brick#aliasOf": [
+            "https://brickschema.org/schema/Brick#Entity"
+        ],
+        "https://brickschema.org/schema/Brick#isReplacedBy": [
+            "https://brickschema.org/schema/Brick#Entity"
+        ],
+        "https://brickschema.org/schema/Brick#hasLocation": [
+            "https://brickschema.org/schema/Brick#Location"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Building": {
+        "https://brickschema.org/schema/Brick#hasAddress": [
+            "http://www.w3.org/2006/vcard/ns#Address"
+        ],
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Floor",
+            "https://brickschema.org/schema/Brick#Room",
+            "https://brickschema.org/schema/Brick#Space",
+            "https://brickschema.org/schema/Brick#Zone",
+            "https://brickschema.org/schema/Brick#Wing"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Floor",
+            "https://brickschema.org/schema/Brick#Room",
+            "https://brickschema.org/schema/Brick#Space",
+            "https://brickschema.org/schema/Brick#Zone",
+            "https://brickschema.org/schema/Brick#Wing"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Equipment": {
+        "https://brickschema.org/schema/Brick#hasInputSubstance": [
+            "https://brickschema.org/schema/Brick#Substance"
+        ],
+        "https://brickschema.org/schema/Brick#hasOutputSubstance": [
+            "https://brickschema.org/schema/Brick#Substance"
+        ],
+        "https://brickschema.org/schema/Brick#isMeteredBy": [
+            "https://brickschema.org/schema/Brick#Meter"
+        ],
+        "https://brickschema.org/schema/Brick#hasLocation": [
+            "https://brickschema.org/schema/Brick#Location",
+            "https://w3id.org/rec#Space"
+        ],
+        "https://brickschema.org/schema/Brick#hasPoint": [
+            "https://brickschema.org/schema/Brick#Point"
+        ],
+        "https://brickschema.org/schema/Brick#feeds": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Location",
+            "https://w3id.org/rec#Space"
+        ],
+        "https://brickschema.org/schema/Brick#isPartOf": [
+            "https://brickschema.org/schema/Brick#System",
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Collection"
+        ],
+        "https://w3id.org/rec#isPartOf": [
+            "https://brickschema.org/schema/Brick#System",
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Collection"
+        ],
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Equipment"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Equipment"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Quantity": {
+        "https://brickschema.org/schema/Brick#hasQUDTReference": [
+            "http://qudt.org/schema/qudt/QuantityKind"
+        ]
+    },
+    "http://www.w3.org/2002/07/owl#Class": {
+        "https://brickschema.org/schema/Brick#hasAssociatedTag": [
+            "https://brickschema.org/schema/Brick#Tag"
+        ],
+        "https://brickschema.org/schema/Brick#hasTag": [
+            "https://brickschema.org/schema/Brick#Tag"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Meter": {
+        "https://brickschema.org/schema/Brick#hasSubMeter": [
+            "https://brickschema.org/schema/Brick#Meter"
+        ],
+        "https://brickschema.org/schema/Brick#isSubMeterOf": [
+            "https://brickschema.org/schema/Brick#Meter"
+        ],
+        "https://brickschema.org/schema/Brick#hasSubstance": [
+            "https://brickschema.org/schema/Brick#Substance"
+        ],
+        "https://brickschema.org/schema/Brick#meters": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Location",
+            "https://brickschema.org/schema/Brick#Collection"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Tag": {
+        "https://brickschema.org/schema/Brick#isAssociatedWith": [
+            "http://www.w3.org/2002/07/owl#Class"
+        ],
+        "https://brickschema.org/schema/Brick#isTagOf": [
+            "https://brickschema.org/schema/Brick#Entity",
+            "https://brickschema.org/schema/Brick#Measurable"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Location": {
+        "https://brickschema.org/schema/Brick#isLocationOf": [
+            "https://brickschema.org/schema/Brick#Entity"
+        ],
+        "https://brickschema.org/schema/Brick#isFedBy": [
+            "https://brickschema.org/schema/Brick#Equipment"
+        ],
+        "https://brickschema.org/schema/Brick#isMeteredBy": [
+            "https://brickschema.org/schema/Brick#Meter"
+        ],
+        "https://brickschema.org/schema/Brick#hasPoint": [
+            "https://brickschema.org/schema/Brick#Point"
+        ],
+        "https://brickschema.org/schema/Brick#isPartOf": [
+            "https://brickschema.org/schema/Brick#Location",
+            "https://w3id.org/rec#Space"
+        ],
+        "https://w3id.org/rec#isPartOf": [
+            "https://brickschema.org/schema/Brick#Location",
+            "https://w3id.org/rec#Space"
+        ],
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Location",
+            "https://w3id.org/rec#Space"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Location",
+            "https://w3id.org/rec#Space"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Point": {
+        "https://brickschema.org/schema/Brick#hasSubstance": [
+            "https://brickschema.org/schema/Brick#Substance"
+        ],
+        "https://brickschema.org/schema/Brick#isPointOf": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Location",
+            "https://w3id.org/rec#Space"
+        ],
+        "https://brickschema.org/schema/Brick#hasQuantity": [
+            "https://brickschema.org/schema/Brick#Quantity",
+            "http://qudt.org/schema/qudt/QuantityKind"
+        ],
+        "https://brickschema.org/schema/Brick#hasUnit": [
+            "http://qudt.org/schema/qudt/Unit"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Collection": {
+        "https://brickschema.org/schema/Brick#isMeteredBy": [
+            "https://brickschema.org/schema/Brick#Meter"
+        ],
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Location",
+            "https://w3id.org/rec#Space",
+            "https://brickschema.org/schema/Brick#Point",
+            "https://brickschema.org/schema/Brick#Collection"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Location",
+            "https://w3id.org/rec#Space",
+            "https://brickschema.org/schema/Brick#Point",
+            "https://brickschema.org/schema/Brick#Collection"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Radiant_Panel_Temperature_Sensor": {
+        "https://brickschema.org/schema/Brick#isPointOf": [
+            "https://brickschema.org/schema/Brick#Radiant_Panel"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Building_Meter": {
+        "https://brickschema.org/schema/Brick#meters": [
+            "https://brickschema.org/schema/Brick#Building"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Lighting_Equipment": {
+        "https://brickschema.org/schema/Brick#feeds": [
+            "https://brickschema.org/schema/Brick#Lighting_Equipment",
+            "https://w3id.org/rec#Space"
+        ],
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Lighting_Equipment",
+            "https://brickschema.org/schema/Brick#Electrical_Equipment"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Lighting_Equipment",
+            "https://brickschema.org/schema/Brick#Electrical_Equipment"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#HVAC_Equipment": {
+        "https://brickschema.org/schema/Brick#feeds": [
+            "https://brickschema.org/schema/Brick#HVAC_Equipment",
+            "https://brickschema.org/schema/Brick#Valve",
+            "https://w3id.org/rec#Space"
+        ],
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#HVAC_Equipment",
+            "https://brickschema.org/schema/Brick#Valve"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#HVAC_Equipment",
+            "https://brickschema.org/schema/Brick#Valve"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Portfolio": {
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Site"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Site"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Hub": {
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Station"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Station"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Station": {
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Port"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Port"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Photovoltaic_Array": {
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#PV_Panel"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#PV_Panel"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Site": {
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Building",
+            "https://brickschema.org/schema/Brick#Region",
+            "https://brickschema.org/schema/Brick#Site",
+            "https://brickschema.org/schema/Brick#Space",
+            "https://brickschema.org/schema/Brick#Room"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Building",
+            "https://brickschema.org/schema/Brick#Region",
+            "https://brickschema.org/schema/Brick#Site",
+            "https://brickschema.org/schema/Brick#Space",
+            "https://brickschema.org/schema/Brick#Room"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Loop": {
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Point",
+            "https://brickschema.org/schema/Brick#Location"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Point",
+            "https://brickschema.org/schema/Brick#Location"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Zone": {
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Space",
+            "https://brickschema.org/schema/Brick#Wing",
+            "https://brickschema.org/schema/Brick#Outdoor_Area",
+            "https://brickschema.org/schema/Brick#Floor"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Space",
+            "https://brickschema.org/schema/Brick#Wing",
+            "https://brickschema.org/schema/Brick#Outdoor_Area",
+            "https://brickschema.org/schema/Brick#Floor"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#Floor": {
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Room",
+            "https://brickschema.org/schema/Brick#Space",
+            "https://brickschema.org/schema/Brick#Zone"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Room",
+            "https://brickschema.org/schema/Brick#Space",
+            "https://brickschema.org/schema/Brick#Zone"
+        ]
+    },
+    "https://brickschema.org/schema/Brick#System": {
+        "https://brickschema.org/schema/Brick#hasPart": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Point",
+            "https://brickschema.org/schema/Brick#Loop",
+            "https://brickschema.org/schema/Brick#System",
+            "https://brickschema.org/schema/Brick#Location",
+            "https://brickschema.org/schema/Brick#PV_Array"
+        ],
+        "https://w3id.org/rec#hasPart": [
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Point",
+            "https://brickschema.org/schema/Brick#Loop",
+            "https://brickschema.org/schema/Brick#System",
+            "https://brickschema.org/schema/Brick#Location",
+            "https://brickschema.org/schema/Brick#PV_Array"
+        ]
+    },
+    "http://www.w3.org/2000/01/rdf-schema#Resource": {
+        "https://brickschema.org/schema/Brick#value": [
+            "http://www.w3.org/2000/01/rdf-schema#Resource"
+        ]
+    }
+}

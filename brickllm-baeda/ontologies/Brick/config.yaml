@@ -1,0 +1,3 @@
+uris_to_exclude:
+  - "http://www.w3.org/ns/sosa/"
+  - "https://brickschema.org/schema/BrickShape#"

@@ -1,0 +1,638 @@
+{
+    "https://saref.etsi.org/saref4bldg/valveOperation": {
+        "label": "valve operation",
+        "description": "The method of valve operation where: DROPWEIGHT: A valve that is closed by the action of a weighted lever being released, the weight normally being prevented from dropping by being held by a wire, the closure normally being made by the action of heat on a fusible link in the wire FLOAT: A valve that is opened and closed by the action of a float that rises and falls with water level. The float may be a ball attached to a lever or other mechanism HYDRAULIC: A valve that is opened and closed by hydraulic actuation LEVER: A valve that is opened and closed by the action of a lever rotating the gate within the valve. LOCKSHIELD: A valve that requires the use of a special lockshield key for opening and closing, the operating mechanism being protected by a shroud during normal operation. MOTORIZED: A valve that is opened and closed by the action of an electric motor on an actuator PNEUMATIC: A valve that is opened and closed by pneumatic actuation SOLENOID: A valve that is normally held open by a magnetic field in a coil acting on the gate but that is closed immediately if the electrical current generating the magnetic field is removed. SPRING: A valve that is normally held in position by the pressure of a spring on a plate but that may be caused to open if the pressure of the fluid is sufficient to overcome the spring pressure. THERMOSTATIC: A valve in which the ports are opened or closed to maintain a required predetermined temperature. WHEEL: A valve that is opened and closed by the action of a wheel moving the gate within the valve."
+    },
+    "https://saref.etsi.org/core/madeBy": {
+        "label": "made by",
+        "description": "Links a procedure execution to the entity (e.g., device) that made it."
+    },
+    "https://saref.etsi.org/saref4bldg/flowArrangement": {
+        "label": "flow arrangement",
+        "description": "CounterFlow: Air and water flow enter in different directions. CrossFlow: Air and water flow are perpendicular. ParallelFlow: air and water flow enter in same directions."
+    },
+    "https://saref.etsi.org/core/profileHasPrice": {
+        "label": "has price",
+        "description": "Links a profile to the money earned (negative values) or paid (positive values) for the use (production or consumption) of the commodity by the device"
+    },
+    "https://saref.etsi.org/core/isFunctionOfInterestOf": {
+        "label": "is function of interest of",
+        "description": "Links a function of interest to the device it is a function of."
+    },
+    "https://saref.etsi.org/core/stores": {
+        "label": "stores",
+        "description": "Links a feature kind, feature of interest, or device, to the commodity it stores"
+    },
+    "https://saref.etsi.org/saref4bldg/mediaSource": {
+        "label": "media source",
+        "description": "Indicates media sources and corresponding names of ports (DistributionPort with FlowDirection=SINK and PredefinedType=AUDIOVISUAL) or aggregated audio/video components (AudioVisualAppliance)."
+    },
+    "https://saref.etsi.org/core/whenPropertyValue": {
+        "label": "when property value",
+        "description": "Links a profile to a property value that contributes to restricting its applicable context."
+    },
+    "https://saref.etsi.org/saref4bldg/shadingDeviceType": {
+        "label": "shading device type",
+        "description": "Specifies the type of shading device."
+    },
+    "https://saref.etsi.org/saref4bldg/hasPartWinding": {
+        "label": "has part winding",
+        "description": "Indication of whether the motor is single speed, i.e. has a single winding (= FALSE) or multi-speed i.e.has part winding (= TRUE) ."
+    },
+    "https://saref.etsi.org/saref4bldg/bladeShape": {
+        "label": "blade shape",
+        "description": "Blade shape. Flat means triple V-groove."
+    },
+    "https://saref.etsi.org/core/consumes": {
+        "label": "consumes",
+        "description": "Links a feature kind, feature of interest, or device, to the commodity it consumes"
+    },
+    "https://saref.etsi.org/saref4bldg/hasTurbulator": {
+        "label": "has turbulator",
+        "description": "TRUE if the tube has a turbulator, FALSE if it does not."
+    },
+    "https://saref.etsi.org/saref4bldg/motorDriveType": {
+        "label": "motor drive type",
+        "description": "Motor drive type: DIRECTDRIVE: Direct drive. BELTDRIVE: Belt drive. COUPLING: Coupling. OTHER: Other type of motor drive. UNKNOWN: Unknown motor drive type. "
+    },
+    "https://saref.etsi.org/core/hasInput": {
+        "label": "has input",
+        "description": "Links a command, operation, or procedure execution, to its inputs."
+    },
+    "https://saref.etsi.org/core/hasState": {
+        "label": "has state",
+        "description": "Links a feature kind or a feature of interest to one of its states."
+    },
+    "https://saref.etsi.org/saref4bldg/valveMechanism": {
+        "label": "valve mechanism",
+        "description": "The mechanism by which the valve function is achieved where: BALL: Valve that has a ported ball that can be turned relative to the body seat ports. BUTTERFLY: Valve in which a streamlined disc pivots about a diametric axis. CONFIGUREDGATE: Screwdown valve in which the closing gate is shaped in a configured manner to have a more precise control of pressure and flow change across the valve. GLAND: Valve with a tapered seating, in which a rotatable plug is retained by means of a gland and gland packing. GLOBE: Screwdown valve that has a spherical body. LUBRICATEDPLUG: Plug valve in which a lubricant is injected under pressure between the plug face and the body. NEEDLE: Valve for regulating the flow in or from a pipe, in which a slender cone moves along the axis of flow to close against a fixed conical seat. PARALLELSLIDE: Screwdown valve that has a machined plate that slides in formed grooves to form a seal. PLUG: Valve that has a ported plug that can be turned relative to the body seat ports. WEDGEGATE: Screwdown valve that has a wedge shaped plate fitting into tapered guides to form a seal."
+    },
+    "https://saref.etsi.org/saref4bldg/secondaryCurrentType": {
+        "label": "secondary current type",
+        "description": "A list of the secondary current types that can result from transformer output."
+    },
+    "https://saref.etsi.org/saref4bldg/storageType": {
+        "label": "storage type",
+        "description": "Defines the general material category intended to be stored."
+    },
+    "https://saref.etsi.org/saref4bldg/heatTransferMedium": {
+        "label": "heat transfer medium",
+        "description": "Enumeration defining the heat transfer medium if applicable."
+    },
+    "https://saref.etsi.org/core/hasPropertyOfInterest": {
+        "label": "has property of interest",
+        "description": "Links a feature of interest to one of its properties of interest."
+    },
+    "https://saref.etsi.org/core/isPropertyOfInterestOf": {
+        "label": "is property of interest of",
+        "description": "Links a property of interest to the feature of interest it is a property of."
+    },
+    "https://saref.etsi.org/core/hasOperation": {
+        "label": "has operation",
+        "description": "Links a service to one of its operations."
+    },
+    "https://saref.etsi.org/core/hasOutput": {
+        "label": "has output",
+        "description": "Links a command or operation to its outputs."
+    },
+    "https://saref.etsi.org/saref4bldg/isGuarded": {
+        "label": "is guarded",
+        "description": "Indication of whether the motor enclosure is guarded (= TRUE) or not (= FALSE)."
+    },
+    "https://saref.etsi.org/saref4bldg/numberOfRows": {
+        "label": "number of rows",
+        "description": "Number of tube rows in the tube bundle assembly."
+    },
+    "https://saref.etsi.org/core/hasProperty": {
+        "label": "has property",
+        "description": "Links a feature kind or a feature of interest to one of its properties."
+    },
+    "https://saref.etsi.org/core/produces": {
+        "label": "produces",
+        "description": "Links a feature kind, feature of interest, or device, to the commodity it produces"
+    },
+    "https://saref.etsi.org/saref4bldg/isContainedIn": {
+        "label": "is contained in",
+        "description": "A relation between a physical object and the physical space in which it is contained."
+    },
+    "https://saref.etsi.org/core/isOperationOf": {
+        "label": "is operation of",
+        "description": "Links an operation to the service it belongs to."
+    },
+    "https://saref.etsi.org/saref4bldg/numberOfCells": {
+        "label": "number of cells",
+        "description": "Number of cells in one cooling tower unit."
+    },
+    "https://saref.etsi.org/core/whenState": {
+        "label": "when state",
+        "description": "Links a profile to a state that contributes to restricting its applicable context."
+    },
+    "https://saref.etsi.org/core/isStoredBy": {
+        "label": "is stored by",
+        "description": "Links a commodity to the feature kind, feature of interest, or device, that stores it"
+    },
+    "https://saref.etsi.org/saref4bldg/numberOfGangs": {
+        "label": "number of gangs",
+        "description": "Number of gangs/buttons on this switch."
+    },
+    "https://saref.etsi.org/saref4bldg/frameSize": {
+        "label": "frame size",
+        "description": "Designation of the frame size according to the named range of frame sizes designated at the place of use or according to a given standard."
+    },
+    "https://saref.etsi.org/saref4bldg/capacityControl": {
+        "label": "capacity control",
+        "description": "FanCycling: Fan is cycled on and off to control duty. TwoSpeedFan: Fan is switched between low and high speed to control duty. VariableSpeedFan: Fan speed is varied to control duty. DampersControl: Dampers modulate the air flow to control duty. BypassValveControl: Bypass valve modulates the water flow to control duty. MultipleSeriesPumps: Turn on/off multiple series pump to control duty. TwoSpeedPump: Switch between high/low pump speed to control duty. VariableSpeedPump: vary pump speed to control duty."
+    },
+    "https://saref.etsi.org/saref4bldg/lampBallastType": {
+        "label": "lamp ballast type",
+        "description": "The type of ballast used to stabilise gas discharge by limiting the current during operation and to deliver the necessary striking voltage for starting. Ballasts are needed to operate Discharge Lamps such as Fluorescent, Compact Fluorescent, High-pressure Mercury, Metal Halide and High-pressure Sodium Lamps. Magnetic ballasts are chokes which limit the current passing through a lamp connected in series on the principle of self-induction. The resultant current and power are decisive for the efficient operation of the lamp. A specially designed ballast is required for every type of lamp to comply with lamp rating in terms of Luminous Flux, Color Appearance and service life. The two types of magnetic ballasts for fluorescent lamps are KVG Conventional (EC-A series) and VVG Low-loss ballasts (EC-B series). Low-loss ballasts have a higher efficiency, which means reduced ballast losses and a lower thermal load. Electronic ballasts are used to run fluorescent lamps at high frequencies (approx. 35 - 40 kHz)."
+    },
+    "https://saref.etsi.org/saref4bldg/numberOfBlades": {
+        "label": "number of blades",
+        "description": "Number of blades."
+    },
+    "https://saref.etsi.org/saref4bldg/capacityControlType": {
+        "label": "capacity control type",
+        "description": "InletVane: Control by adjusting inlet vane. VariableSpeedDrive: Control by variable speed drive. BladePitchAngle: Control by adjusting blade pitch angle. TwoSpeed: Control by switch between high and low speed. DischargeDamper: Control by modulating discharge damper."
+    },
+    "https://saref.etsi.org/saref4bldg/heatTransferDimension": {
+        "label": "heat transfer dimension",
+        "description": "Indicates how heat is transmitted according to the shape of the space heater."
+    },
+    "https://saref.etsi.org/core/hasCommandOfInterest": {
+        "label": "has command of interest",
+        "description": "Links a function of interest to one of its commands of interest."
+    },
+    "https://saref.etsi.org/saref4bldg/hasSpace": {
+        "label": "has space",
+        "description": "Relation between a building or a building space and the spaces it can be divided into."
+    },
+    "https://saref.etsi.org/saref4bldg/operatingMode": {
+        "label": "operating mode",
+        "description": "Identifies the operating mode of the boiler."
+    },
+    "https://saref.etsi.org/saref4bldg/finishColor": {
+        "label": "finish color",
+        "description": "Finish color for cooled beam."
+    },
+    "https://saref.etsi.org/core/targets": {
+        "label": "targets",
+        "description": "Links a device, function, command, or procedure execution, to the feature, property, or state, it targets."
+    },
+    "https://saref.etsi.org/core/controls": {
+        "label": "controls",
+        "description": "Links a device, function, command, or procedure execution, to the feature, property, or state, it controls."
+    },
+    "https://saref.etsi.org/saref4bldg/pipeConnectionEnum": {
+        "label": "pipe connection enum",
+        "description": "The manner in which the pipe connection is made to the cooled beam."
+    },
+    "https://saref.etsi.org/saref4bldg/energySource": {
+        "label": "energy source",
+        "description": "Enumeration defining the energy source or fuel cumbusted to generate heat. The source of energy."
+    },
+    "https://saref.etsi.org/saref4bldg/legend": {
+        "label": "legend",
+        "description": "A text inscribed or applied to the switch as a legend to indicate purpose or function."
+    },
+    "https://saref.etsi.org/core/hasManufacturer": {
+        "label": "has manufacturer",
+        "description": "A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+    },
+    "https://saref.etsi.org/core/hasFeatureKind": {
+        "label": "has feature kind",
+        "description": "links a feature of interest to its kind, a feature kind"
+    },
+    "https://saref.etsi.org/core/hasDeviceKind": {
+        "label": "has device kind",
+        "description": "Links a device to its kind, a device kind. Kinds of devices describe models of devices, with common properties and common states having the same value, targeting the same properties and states, common functions, and common services."
+    },
+    "https://saref.etsi.org/saref4bldg/accessType": {
+        "label": "access type",
+        "description": "Defines the types of access (or cover) to a tank that may be specified. Note that covers are generally specified for rectangular tanks. For cylindrical tanks, access will normally be via a manhole."
+    },
+    "https://saref.etsi.org/saref4bldg/numberOsSockets": {
+        "label": "number os sockets",
+        "description": "The number of sockets that may be connected. In case of inconsistency, sockets defined on ports take precedence."
+    },
+    "https://saref.etsi.org/core/hasApplicableTime": {
+        "label": "has applicable time",
+        "description": "Links an entity (e.g., a profile) to an instant or interval or other compound temporal entity expressed using OWL Time, which bounds temporally the applicable context of that entity."
+    },
+    "https://saref.etsi.org/core/hasResult": {
+        "label": "has result",
+        "description": "Links a procedure execution (e.g., an observation) to its result (e.g., a property value)."
+    },
+    "https://saref.etsi.org/saref4bldg/orientation": {
+        "label": "orientation",
+        "description": "The intended orientation for the damper as specified by the manufacturer."
+    },
+    "https://saref.etsi.org/core/hasResultTime": {
+        "label": "has result time",
+        "description": "Links a procedure execution to the instant of time when the activity was completed, expressed as an xsd:dateTime literal."
+    },
+    "https://saref.etsi.org/core/hasFunctionOfInterest": {
+        "label": "has function of interest",
+        "description": "Links a device to one of its functions of interest."
+    },
+    "https://saref.etsi.org/core/hasFunctionKind": {
+        "label": "has function kind",
+        "description": "links a function of interest to its kind, a function"
+    },
+    "https://saref.etsi.org/saref4bldg/transformerVectorGroup": {
+        "label": "transformer vector group",
+        "description": "List of the possible vector groups for the transformer from which that required may be set. Values in the enumeration list follow a standard international code where the first letter describes how the primary windings are connected, the second letter describes how the secondary windings are connected, and the numbers describe the rotation of voltages and currents from the primary to the secondary side in multiples of 30 degrees. D: means that the windings are delta-connected. Y: means that the windings are star-connected. Z: means that the windings are zig-zag connected (a special start-connected providing low reactance of the transformer). The connectivity is only relevant for three-phase transformers."
+    },
+    "https://saref.etsi.org/saref4bldg/motorEnclosureType": {
+        "label": "motor enclosure type",
+        "description": "A list of the available types of motor enclosure from which that required may be selected."
+    },
+    "https://saref.etsi.org/saref4bldg/nominalSupplyVoltageMax": {
+        "label": "nominal supply voltage offset",
+        "description": "The maximum and minimum allowed voltage of the supply e.g. boundaries of 380V/440V may be applied for a nominal voltage of 400V."
+    },
+    "https://saref.etsi.org/saref4bldg/numberOfPanels": {
+        "label": "number of panels",
+        "description": "Number of panels."
+    },
+    "https://saref.etsi.org/saref4bldg/isIlluminated": {
+        "label": "is illuminated",
+        "description": "An indication of whether there is an illuminated indicator to show that the switch is on (=TRUE) or not (= FALSE)."
+    },
+    "https://saref.etsi.org/saref4bldg/frameType": {
+        "label": "frame type",
+        "description": "The type of frame used by the damper (e.g., Standard, Single Flange, Single Reversed Flange, Double Flange, etc.)."
+    },
+    "https://saref.etsi.org/core/hasStateValue": {
+        "label": "has state value",
+        "description": "Links a feature kind, a feature of interest, or a state of interest, to a state value."
+    },
+    "https://saref.etsi.org/core/hasProfile": {
+        "label": "has profile",
+        "description": "Links a device to its profile. Its inverse is saref:isProfileOf. The device should be linked to a certain commodity using OP saref:consumes, saref:produces, or saref:stores, and optionally to some property or state using OP saref:targets or its sub-properties."
+    },
+    "https://saref.etsi.org/saref4bldg/temperatureClassification": {
+        "label": "temperature classification",
+        "description": "Enumeration defining the temperature classification of the space heater surface temperature. low temperature - surface temperature is relatively low, usually heated by hot water or electricity. high temperature - surface temperature is relatively high, usually heated by gas or steam."
+    },
+    "https://saref.etsi.org/core/isCommandOf": {
+        "label": "is command of",
+        "description": "Links a command and a function or function of interest that supports it."
+    },
+    "https://saref.etsi.org/saref4bldg/circuitType": {
+        "label": "circuit type",
+        "description": "OpenCircuit: Exposes water directly to the cooling atmosphere. CloseCircuit: The fluid is separated from the atmosphere by a heat exchanger. Wet: The air stream or the heat exchange surface is evaporatively cooled. Dry: No evaporation into the air stream. DryWet: A combination of a dry tower and a wet tower."
+    },
+    "https://saref.etsi.org/saref4bldg/isPluggableOutlet": {
+        "label": "is pluggable outlet",
+        "description": "Indication of whether the outlet accepts a loose plug connection (= TRUE) or whether it is directly connected (= FALSE) or whether the form of connection has not yet been determined (= UNKNOWN)."
+    },
+    "https://saref.etsi.org/saref4bldg/colorRenderingIndex": {
+        "label": "color rendering index",
+        "description": "The CRI indicates how well a light source renders eight standard colors compared to perfect reference lamp with the same color temperature. The CRI scale ranges from 1 to 100, with 100 representing perfect rendering properties."
+    },
+    "https://saref.etsi.org/core/hasCommand": {
+        "label": "has command",
+        "description": "Links a function or function of interest and the command it supports."
+    },
+    "https://saref.etsi.org/core/isFunctionOf": {
+        "label": "is function of",
+        "description": "Links a function to the feature kind or device it is a function of."
+    },
+    "https://saref.etsi.org/saref4bldg/hasExteriorInsulation": {
+        "label": "has exterior insulation",
+        "description": "TRUE if the silencer has exterior insulation. FALSE if it does not."
+    },
+    "http://www.w3.org/2004/02/skos/core#narrower": {
+        "label": "",
+        "description": ""
+    },
+    "https://saref.etsi.org/saref4bldg/hasHotGasBypass": {
+        "label": "has hot gas bypass",
+        "description": "Whether or not hot gas bypass is provided for the compressor. TRUE = Yes, FALSE = No."
+    },
+    "https://saref.etsi.org/core/isValueOfProperty": {
+        "label": "is value of property",
+        "description": "Links a property value to the property or property of interest it is a value of."
+    },
+    "https://saref.etsi.org/saref4bldg/numberOfCircuits": {
+        "label": "number of circuits",
+        "description": "Number of parallel fluid tube circuits."
+    },
+    "http://www.w3.org/2004/02/skos/core#broader": {
+        "label": "",
+        "description": ""
+    },
+    "https://saref.etsi.org/saref4bldg/capacityPeople": {
+        "label": "capacity people",
+        "description": "Capacity of the transportation element measured in numbers of person."
+    },
+    "https://saref.etsi.org/core/hasPropertyValue": {
+        "label": "has property value",
+        "description": "Links a feature kind, a feature of interest, or a property of interest, to a property value."
+    },
+    "https://saref.etsi.org/saref4bldg/refrigerantClass": {
+        "label": "refrigerant class",
+        "description": "Refrigerant class used by the compressor. CFC: Chlorofluorocarbons. HCFC: Hydrochlorofluorocarbons. HFC: Hydrofluorocarbons."
+    },
+    "https://saref.etsi.org/core/observes": {
+        "label": "observes",
+        "description": "Links a device, function, command, or procedure execution, to the feature, property, or state, it observes."
+    },
+    "https://saref.etsi.org/saref4bldg/heatTransferTypeEnum": {
+        "label": "heat transfer type enum",
+        "description": "Type of heat transfer between the two air streams."
+    },
+    "https://saref.etsi.org/saref4bldg/manualOverride": {
+        "label": "manual override",
+        "description": "Identifies whether hand-operated operation is provided as an override (= TRUE) or not (= FALSE). Note that this value should be set to FALSE by default in the case of a Hand Operated Actuator."
+    },
+    "https://saref.etsi.org/core/isConsumedBy": {
+        "label": "is consumed by",
+        "description": "Links a commodity to the feature kind, feature of interest, or device, that consumes it"
+    },
+    "https://saref.etsi.org/core/isValueOfState": {
+        "label": "is value of state",
+        "description": "Links a state value to the state or state of interest it is a value of."
+    },
+    "https://saref.etsi.org/saref4bldg/bladeEdge": {
+        "label": "blade edge",
+        "description": "Blade edge."
+    },
+    "https://saref.etsi.org/saref4bldg/roughness": {
+        "label": "roughness",
+        "description": "A measure of the vertical deviations of the surface."
+    },
+    "https://saref.etsi.org/core/hasValue": {
+        "label": "has value",
+        "description": "Value of a property value expressed as an RDF literal. Note that, even if decimal values are expected, values could use other datatypes."
+    },
+    "https://saref.etsi.org/saref4bldg/arrangement": {
+        "label": "arrangement",
+        "description": "Defines the basic flow arrangements for the heat exchanger: COUNTERFLOW: Counterflow heat exchanger arrangement. CROSSFLOW: Crossflow heat exchanger arrangement. PARALLELFLOW: Parallel flow heat exchanger arrangement. MULTIPASS: Multipass flow heat exchanger arrangement. OTHER: Other type of heat exchanger flow arrangement not defined above."
+    },
+    "https://saref.etsi.org/core/hasMandatoryCommand": {
+        "label": "has mandatory command",
+        "description": "Links a function and one of its mandatory commands"
+    },
+    "https://saref.etsi.org/saref4bldg/remoteReading": {
+        "label": "remote reading",
+        "description": "Indicates whether the meter has a connection for remote reading through connection of a communication device (set TRUE) or not (set FALSE)."
+    },
+    "https://saref.etsi.org/saref4bldg/valvePattern": {
+        "label": "valve pattern",
+        "description": "The configuration of the ports of a valve according to either the linear route taken by a fluid flowing through the valve or by the number of ports where: SINGLEPORT: Valve that has a single entry port from the system that it serves, the exit port being to the surrounding environment. ANGLED_2_PORT: Valve in which the direction of flow is changed through 90 degrees. STRAIGHT_2_PORT: Valve in which the flow is straight through. STRAIGHT_3_PORT: Valve with three separate ports. CROSSOVER_4_PORT: Valve with 4 separate ports."
+    },
+    "https://saref.etsi.org/saref4bldg/standard": {
+        "label": "standard",
+        "description": "The designation of the standard applicable for the definition of the characteristics of the unit."
+    },
+    "https://saref.etsi.org/core/isExecutionOf": {
+        "label": "is execution of",
+        "description": "Links a command execution to the command or command of interest that was executed. Also liks an operation execution to the operation that was executed"
+    },
+    "https://saref.etsi.org/saref4bldg/isNeutralPrimaryTerminalAvailable": {
+        "label": "is neutral primary terminal available",
+        "description": "An indication of whether the neutral point of the primary winding is available as a terminal (=TRUE) or not (= FALSE)."
+    },
+    "https://saref.etsi.org/saref4bldg/colorAppearance": {
+        "label": "color appearance",
+        "description": "In both the DIN and CIE standards, artificial light sources are classified in terms of their color appearance. To the human eye they all appear to be white the difference can only be detected by direct comparison. Visual performance is not directly affected by differences in color appearance."
+    },
+    "https://saref.etsi.org/saref4bldg/contains": {
+        "label": "contains",
+        "description": "A relation between a physical object and another physical object it contains."
+    },
+    "https://saref.etsi.org/core/hasStateOfInterest": {
+        "label": "has state of interest",
+        "description": "Links a feature of interest to one of its states of interest."
+    },
+    "https://saref.etsi.org/saref4bldg/isFreeHanging": {
+        "label": "is free hanging",
+        "description": "Is it free hanging type (not mounted in a false ceiling)?"
+    },
+    "https://saref.etsi.org/saref4bldg/application": {
+        "label": "application",
+        "description": "Humidifier application. Fixed: Humidifier installed in a ducted flow distribution system. Portable: Humidifier is not installed in a ducted flow distribution system."
+    },
+    "https://saref.etsi.org/core/hasIdentifier": {
+        "label": "has identifier",
+        "description": "Links some entity to its identifier. Extensions of SAREF may define sub-properties such as s4abcd:hasUUID, s4abcd:hasGTIN12, etc."
+    },
+    "https://saref.etsi.org/core/hasFunction": {
+        "label": "has function",
+        "description": "Links a feature kind or a device to one of its functions."
+    },
+    "https://saref.etsi.org/saref4bldg/endShapeType": {
+        "label": "end shape type",
+        "description": "Defines the types of end shapes that can be used for preformed tanks. The convention for reading these enumerated values is that for a vertical cylinder, the first value is the base and the second is the top for a horizontal cylinder, the order of reading should be left to right. For a speherical tank, the value UNSET should be used.B5"
+    },
+    "https://saref.etsi.org/saref4bldg/hasLock": {
+        "label": "has lock",
+        "description": "Indication of whether a switching device has a key operated lock (=TRUE) or not (= FALSE)."
+    },
+    "https://saref.etsi.org/core/accomplishes": {
+        "label": "accomplishes",
+        "description": "Links a certain entity (e.g., a device) to the task it accomplishes."
+    },
+    "https://saref.etsi.org/core/hasTimestamp": {
+        "label": "has timestamp",
+        "description": "Links a procedure execution or a profile to an instant."
+    },
+    "https://saref.etsi.org/core/isObservedBy": {
+        "label": "is observed by",
+        "description": "Links a feature, property, or state, to the device, function, command, or procedure execution, that observes it."
+    },
+    "https://saref.etsi.org/core/hasVersion": {
+        "label": "has version",
+        "description": "Links some entity (e.g., a device) to its version."
+    },
+    "https://saref.etsi.org/saref4bldg/numberOfSections": {
+        "label": "number of sections",
+        "description": "Number of sections used."
+    },
+    "https://saref.etsi.org/saref4bldg/isSpaceOf": {
+        "label": "isSpaceOf",
+        "description": "Relation between a building space and the building or building space it belongs to."
+    },
+    "https://saref.etsi.org/core/isOfferedBy": {
+        "label": "is offered by",
+        "description": "Links a service to the device that exposes it to a network"
+    },
+    "https://saref.etsi.org/core/hasRevisionNumber": {
+        "label": "has revision number",
+        "description": "Links some entity (e.g., a device) to its revision number."
+    },
+    "https://saref.etsi.org/core/hasPropertyKind": {
+        "label": "has property kind",
+        "description": "links a property of interest to its kind, a property."
+    },
+    "https://saref.etsi.org/core/hasModel": {
+        "label": "has model",
+        "description": "A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag."
+    },
+    "https://saref.etsi.org/core/isAccomplishedBy": {
+        "label": "is accomplished by",
+        "description": "A relationship identifying an entity (e.g., a device) that can accomplish a task."
+    },
+    "https://saref.etsi.org/saref4bldg/hasDefrost": {
+        "label": "has defrost",
+        "description": "Whether the heat exchanger has defrost function or not."
+    },
+    "https://saref.etsi.org/core/hasCommandKind": {
+        "label": "has command kind",
+        "description": "links a command of interest to its kind, a command."
+    },
+    "https://saref.etsi.org/saref4bldg/shortCircuitVoltage": {
+        "label": "short circuit voltage",
+        "description": "A complex number that specifies the real and imaginary parts of the short-circuit voltage at rated current of a transformer given in %."
+    },
+    "https://saref.etsi.org/core/isProfileOf": {
+        "label": "is profile of",
+        "description": "Links a profile to the device it describes. The device should be linked to a certain commodity using OP saref:consumes, saref:produces, or saref:stores, and optionally to some property or state using OP saref:targets or its sub-properties."
+    },
+    "https://saref.etsi.org/saref4bldg/sprayType": {
+        "label": "spray type",
+        "description": "SprayFilled: Water is sprayed into airflow. SplashTypeFill: water cascades over successive rows of splash bars. FilmTypeFill: water flows in a thin layer over closely spaced sheets."
+    },
+    "https://saref.etsi.org/core/madeExecution": {
+        "label": "made execution",
+        "description": "Links an entity (e.g., device) to the procedure execution it made."
+    },
+    "https://saref.etsi.org/core/hasOptionalCommand": {
+        "label": "has optional command",
+        "description": "Links a function and one of its optional commands"
+    },
+    "https://saref.etsi.org/saref4bldg/powerSource": {
+        "label": "power source",
+        "description": "Type of power driving the compressor."
+    },
+    "https://saref.etsi.org/saref4bldg/switchFunction": {
+        "label": "switch function",
+        "description": "Indicates types of switches which differs in functionality."
+    },
+    "https://saref.etsi.org/saref4bldg/internalControl": {
+        "label": "internal control",
+        "description": "Internal modulation control."
+    },
+    "https://saref.etsi.org/saref4bldg/evaporationMediumType": {
+        "label": "evaporation medium type",
+        "description": "ColdLiquid: Evaporator is using liquid type of fluid to exchange heat with refrigerant. ColdAir: Evaporator is using air to exchange heat with refrigerant."
+    },
+    "https://saref.etsi.org/core/consistsOf": {
+        "label": "consists of",
+        "description": "A relationship indicating a composite entity that consists of other entities (e.g., a temperature/humidity sensor that consists of a temperature sensor and a humidity sensor)"
+    },
+    "https://saref.etsi.org/saref4bldg/controlStrategy": {
+        "label": "control strategy",
+        "description": "FixedExitingWaterTemp: The capacity is controlled to maintain a fixed exiting water temperature. WetBulbTempReset: The set-point is reset based on the wet-bulb temperature."
+    },
+    "https://saref.etsi.org/core/offers": {
+        "label": "offers",
+        "description": "Links a device to a service it exposes to a network."
+    },
+    "https://saref.etsi.org/core/represents": {
+        "label": "represents",
+        "description": "Links a service to some function or function of interest it exposes to the network. Also links an operation to some command or command of interest it exposes to the network."
+    },
+    "https://saref.etsi.org/saref4bldg/isExternal": {
+        "label": "is external",
+        "description": "Indication whether the element is designed for use in the exterior (TRUE) or not (FALSE). If (TRUE) it is an external element and faces the outside of the building."
+    },
+    "https://saref.etsi.org/saref4bldg/failPosition": {
+        "label": "fail position",
+        "description": "Specifies the required fail-safe position of the actuator."
+    },
+    "https://saref.etsi.org/saref4bldg/isNeutralSecondaryTerminalAvailable": {
+        "label": "is neutral secondary terminal available",
+        "description": "An indication of whether the neutral point of the secondary winding is available as a terminal (=TRUE) or not (= FALSE)."
+    },
+    "https://saref.etsi.org/saref4bldg/waterFlowControlSystemType": {
+        "label": "water flow control system type",
+        "description": "Factory fitted waterflow control system."
+    },
+    "https://saref.etsi.org/saref4bldg/evaporationCoolant": {
+        "label": "evaporation coolant",
+        "description": "The fluid used for the coolant in the evaporator."
+    },
+    "https://saref.etsi.org/saref4bldg/operation": {
+        "label": "operation",
+        "description": "The operational mechanism for the damper operation."
+    },
+    "https://saref.etsi.org/core/isStateOf": {
+        "label": "is state of",
+        "description": "Links a state to the feature kind or feature of interest it is a state of."
+    },
+    "https://saref.etsi.org/saref4bldg/integratedLightingType": {
+        "label": "integrated lighting type",
+        "description": "Integrated lighting in cooled beam."
+    },
+    "https://saref.etsi.org/core/isTargetOf": {
+        "label": "is target of",
+        "description": "Links a feature, property, or state, to the device, function, command, or procedure execution, that targets it."
+    },
+    "https://saref.etsi.org/core/hasStateKind": {
+        "label": "has state kind",
+        "description": "links a state of interest to its kind, a state"
+    },
+    "https://saref.etsi.org/saref4bldg/fireExit": {
+        "label": "fire exit",
+        "description": "Indication whether this object is designed to serve as an exit in the case of fire (TRUE) or not (FALSE). Here whether the transport element (in case of e.g., a lift) is designed to serve as a fire exit, e.g., for fire escape purposes."
+    },
+    "https://saref.etsi.org/saref4bldg/placementType": {
+        "label": "placement type",
+        "description": "Indicates how the device is designed to be placed."
+    },
+    "https://saref.etsi.org/core/isProducedBy": {
+        "label": "is produced by",
+        "description": "Links a commodity to the feature kind, feature of interest, or device, that produces it"
+    },
+    "https://saref.etsi.org/core/isCommandOfInterestOf": {
+        "label": "is command of interest of",
+        "description": "Links a command of interest to the function of interest it is a command of."
+    },
+    "https://saref.etsi.org/core/hasPhenomenonTime": {
+        "label": "has phenomenon time",
+        "description": "Links a procedure execution to the time that the result applies. It may be an interval or an instant, or some other compound temporal entity expressed using OWL Time."
+    },
+    "https://saref.etsi.org/core/isStateOfInterestOf": {
+        "label": "is state of interest of",
+        "description": "Links a state of interest to the feature of interest it is a state of."
+    },
+    "https://saref.etsi.org/saref4bldg/isWaterStorageHeater": {
+        "label": "is water storage heater",
+        "description": "This is used to identify if the boiler has storage capacity (TRUE). If FALSE, then there is no storage capacity built into the boiler, such as an instantaneous hot water heater."
+    },
+    "https://saref.etsi.org/saref4bldg/readOutType": {
+        "label": "read out type",
+        "description": "Indication of the form that readout from the meter takes. In the case of a dial read out, this may comprise multiple dials that give a cumulative reading and/or a mechanical odometer."
+    },
+    "https://saref.etsi.org/core/isMeasuredIn": {
+        "label": "is measured in",
+        "description": "A relationship identifying the unit of measure used for a certain entity."
+    },
+    "https://saref.etsi.org/core/isPropertyOf": {
+        "label": "is property of",
+        "description": "Links a property to the feature kind or feature of interest it is a property of."
+    },
+    "https://saref.etsi.org/saref4bldg/lampCompensationType": {
+        "label": "lamp compensation type",
+        "description": "Identifies the form of compensation used for power factor correction and radio suppression."
+    },
+    "https://saref.etsi.org/saref4bldg/bladeAction": {
+        "label": "blade action",
+        "description": "Blade action."
+    },
+    "https://saref.etsi.org/saref4bldg/patternType": {
+        "label": "pattern type",
+        "description": "Defines the types of pattern (or shape of a tank that may be specified."
+    },
+    "https://saref.etsi.org/saref4bldg/mechanicalOperated": {
+        "label": "mechanical operated",
+        "description": "Indication whether the element is operated machanically (TRUE) or not, i.e. manually (FALSE)."
+    },
+    "https://saref.etsi.org/core/isControlledBy": {
+        "label": "is controlled by",
+        "description": "Links a feature, property, or state, to the device, function, command, or procedure execution, that controls it."
+    }
+}
