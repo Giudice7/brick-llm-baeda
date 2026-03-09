@@ -1,6 +1,7 @@
 import os
 import json
 
+import rdflib
 from loguru import logger
 from langchain.agents import create_agent
 from langchain_core.runnables import RunnableConfig
@@ -26,6 +27,7 @@ def knowledge_graph_refactoring_agent(state: WorkflowState, config: RunnableConf
 
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     ontology_dir = os.path.join(base_dir, "ontologies", ontology_name)
+    ontology = rdflib.Graph().parse(os.path.join(ontology_dir, "ontology.ttl"), format="turtle")
 
     identified_entities = state.get("identified_entities", [])
     if isinstance(identified_entities, IdentifiedEntities):
@@ -34,28 +36,9 @@ def knowledge_graph_refactoring_agent(state: WorkflowState, config: RunnableConf
     if isinstance(identified_properties, IdentifiedProperties):
         identified_properties = identified_properties.selected_properties
 
-    hierarchy_path = os.path.join(ontology_dir, "hierarchy.json")
-    with open(hierarchy_path, "r", encoding="utf-8") as f:
-        hierarchy = json.load(f)
-
-    rules_path = os.path.join(ontology_dir, "relationships.json")
-    try:
-        with open(rules_path, "r", encoding="utf-8") as f:
-            relationships = json.load(f)
-    except FileNotFoundError:
-        relationships = {}
-
-    try:
-        with open(os.path.join(ontology_dir, "properties.json"), "r", encoding="utf-8") as f:
-            properties = json.load(f)
-    except FileNotFoundError:
-        properties = {}
-
     supported_relationships = state.get("supported_relationships", get_supported_relationships(identified_entities,
                                                           identified_properties,
-                                                          hierarchy,
-                                                          relationships,
-                                                          properties))
+                                                          ontology))
 
     add_tool = StructuredTool.from_function(
         func=lambda subject_uri, predicate_uri, object_value, is_literal: add_triple(
@@ -81,15 +64,15 @@ def knowledge_graph_refactoring_agent(state: WorkflowState, config: RunnableConf
         description="Deletes an existing triple from the knowledge graph to resolve conflicts."
     )
 
-    retrieve_tool = StructuredTool.from_function(
-        func=lambda entity_uri: retrieve_entity_info(
-            graph=graph,
-            entity_uri=entity_uri
-        ),
-        name="retrieve_entity_info",
-        description="Retrieves the subgraph surrounding a specific entity in Turtle format."
-    )
-    # TODO: Instead of only providing the identified_entities, provide also subClassOf general entities to give the agent more context
+    # retrieve_tool = StructuredTool.from_function(
+    #     func=lambda entity_uri: retrieve_entity_info(
+    #         graph=graph,
+    #         entity_uri=entity_uri
+    #     ),
+    #     name="retrieve_entity_info",
+    #     description="Retrieves the subgraph surrounding a specific entity in Turtle format."
+    # )
+
     system_message = f"""
         You are an ontology-based Knowledge Graph Refactoring agent. Your task is to resolve SHACL validation errors for an existing ontology-based RDF graph.
         The ontology you are working with is {ontology_name}.
@@ -119,7 +102,7 @@ def knowledge_graph_refactoring_agent(state: WorkflowState, config: RunnableConf
 
     agent = create_agent(
         model=llm,
-        tools=[add_tool, delete_tool, retrieve_tool],
+        tools=[add_tool, delete_tool],
         system_prompt=SystemMessage(content=system_message),
         response_format=None
     )

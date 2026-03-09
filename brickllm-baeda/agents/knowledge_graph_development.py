@@ -35,29 +35,11 @@ def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> Workf
 
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     ontology_dir = os.path.join(base_dir, "ontologies", ontology_name)
-
-    hierarchy_path = os.path.join(ontology_dir, "hierarchy.json")
-    with open(hierarchy_path, "r", encoding="utf-8") as f:
-        hierarchy = json.load(f)
-
-    rules_path = os.path.join(ontology_dir, "relationships.json")
-    try:
-        with open(rules_path, "r", encoding="utf-8") as f:
-            relationships = json.load(f)
-    except FileNotFoundError:
-        relationships = {}
-
-    try:
-        with open(os.path.join(ontology_dir, "properties.json"), "r", encoding="utf-8") as f:
-            properties = json.load(f)
-    except FileNotFoundError:
-        properties = {}
+    ontology = rdflib.Graph().parse(os.path.join(ontology_dir, "ontology.ttl"), format="turtle")
 
     supported_relationships = get_supported_relationships(identified_entities,
                                                           identified_properties,
-                                                          hierarchy,
-                                                          relationships,
-                                                          properties)
+                                                          ontology)
 
     system_message = f"""
         You are an ontology Knowledge Graph building agent. Your task is to instantiate entities from the text and connect them. The ontology you are working with is {ontology_name}.
@@ -68,7 +50,7 @@ def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> Workf
         Here are the properties identified in the text (with their extracted values):
         {json.dumps(identified_properties, indent=2)}
 
-        Here is the context dictionary mapping the identified entities to their ALLOWED structural relationships and data properties:
+        Here is the context dictionary mapping the identified entities to their ALLOWED structural relationships and properties:
         {json.dumps(supported_relationships, indent=2)}
 
         # GENERAL INSTRUCTIONS:
@@ -76,11 +58,11 @@ def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> Workf
         2. ASSIGN TYPE: For each instance you create, you MUST assign it a class from the identified list using the predicate "http://www.w3.org/1999/02/22-rdf-syntax-ns#type". 
            Example: [ {uri}ahu_1, http://www.w3.org/1999/02/22-rdf-syntax-ns#type, https://brickschema.org/schema/Brick#Air_Handling_Unit ]
 
-        3. CONNECT INSTANCES (OBJECT PROPERTIES): Connect the physical instances to each other based on the text. 
-           CRITICAL: When connecting instance A to instance B, look up the `supported_relationships` for instance A's class in the dictionary above. Do not invent predicates.
-
-        4. ASSIGN DATA PROPERTIES: For the extracted text properties, check the `supported_properties` for the relevant entity in the dictionary. You MUST follow these two exact patterns:
-           - DIRECT PATTERN: If the property in the dictionary maps to a flat list (e.g., ["http://www.w3.org/2001/XMLSchema#string"]), connect the main instance directly to the literal value, specifying the XML schema type (e.g. "anykindoftext"^^http://www.w3.org/2001/XMLSchema#string.
+        3. CONNECT INSTANCES: Connect the physical instances to each other based on the input provided by the user. 
+           CRITICAL: When connecting instance A to instance B, look up the supported relationships for instance A's class in the dictionary above. Do not invent predicates.
+           You MUST follow these two exact patterns:
+           - DIRECT PATTERN: valid for both object properties that connect two nodes or data properties that connect a node to a literal value.
+            For the latter, if the property in the dictionary maps to a flat list (e.g., ["http://www.w3.org/2001/XMLSchema#string"]), connect the main instance directly to the literal value, specifying the XML schema type (e.g. "anykindoftext"^^http://www.w3.org/2001/XMLSchema#string.
              Example: [ {uri}sensor_1, https://brickschema.org/schema/Brick/ref#hasTimeseriesId, "abc-123"^^http://www.w3.org/2001/XMLSchema#string ]
            - COMPLEX PATTERN (SHAPE/NODE): If the property in the dictionary maps to a nested dictionary (e.g., containing "value" and "hasUnit"), DO NOT assign the literal directly to the main instance. Instead:
              a) Create a new unique URI for this property node (e.g., {uri}room_A_area).

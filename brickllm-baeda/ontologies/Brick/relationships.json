@@ -1,323 +1,134 @@
 {
-    "https://brickschema.org/schema/Brick#Entity": {
-        "https://brickschema.org/schema/Brick#aliasOf": [
-            "https://brickschema.org/schema/Brick#Entity"
-        ],
-        "https://brickschema.org/schema/Brick#isReplacedBy": [
-            "https://brickschema.org/schema/Brick#Entity"
-        ],
-        "https://brickschema.org/schema/Brick#hasLocation": [
-            "https://brickschema.org/schema/Brick#Location"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Building": {
-        "https://brickschema.org/schema/Brick#hasAddress": [
-            "http://www.w3.org/2006/vcard/ns#Address"
-        ],
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Floor",
-            "https://brickschema.org/schema/Brick#Room",
-            "https://brickschema.org/schema/Brick#Space",
-            "https://brickschema.org/schema/Brick#Zone",
-            "https://brickschema.org/schema/Brick#Wing"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Floor",
-            "https://brickschema.org/schema/Brick#Room",
-            "https://brickschema.org/schema/Brick#Space",
-            "https://brickschema.org/schema/Brick#Zone",
-            "https://brickschema.org/schema/Brick#Wing"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Equipment": {
-        "https://brickschema.org/schema/Brick#hasInputSubstance": [
-            "https://brickschema.org/schema/Brick#Substance"
-        ],
-        "https://brickschema.org/schema/Brick#hasOutputSubstance": [
-            "https://brickschema.org/schema/Brick#Substance"
-        ],
-        "https://brickschema.org/schema/Brick#isMeteredBy": [
-            "https://brickschema.org/schema/Brick#Meter"
-        ],
-        "https://brickschema.org/schema/Brick#hasLocation": [
-            "https://brickschema.org/schema/Brick#Location",
-            "https://w3id.org/rec#Space"
-        ],
-        "https://brickschema.org/schema/Brick#hasPoint": [
-            "https://brickschema.org/schema/Brick#Point"
-        ],
-        "https://brickschema.org/schema/Brick#feeds": [
-            "https://brickschema.org/schema/Brick#Equipment",
-            "https://brickschema.org/schema/Brick#Location",
-            "https://w3id.org/rec#Space"
-        ],
-        "https://brickschema.org/schema/Brick#isPartOf": [
-            "https://brickschema.org/schema/Brick#System",
-            "https://brickschema.org/schema/Brick#Equipment",
-            "https://brickschema.org/schema/Brick#Collection"
-        ],
-        "https://w3id.org/rec#isPartOf": [
-            "https://brickschema.org/schema/Brick#System",
-            "https://brickschema.org/schema/Brick#Equipment",
-            "https://brickschema.org/schema/Brick#Collection"
-        ],
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Equipment"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Equipment"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Quantity": {
-        "https://brickschema.org/schema/Brick#hasQUDTReference": [
-            "http://qudt.org/schema/qudt/QuantityKind"
-        ]
-    },
-    "http://www.w3.org/2002/07/owl#Class": {
-        "https://brickschema.org/schema/Brick#hasAssociatedTag": [
-            "https://brickschema.org/schema/Brick#Tag"
-        ],
-        "https://brickschema.org/schema/Brick#hasTag": [
-            "https://brickschema.org/schema/Brick#Tag"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Meter": {
-        "https://brickschema.org/schema/Brick#hasSubMeter": [
-            "https://brickschema.org/schema/Brick#Meter"
-        ],
-        "https://brickschema.org/schema/Brick#isSubMeterOf": [
-            "https://brickschema.org/schema/Brick#Meter"
-        ],
-        "https://brickschema.org/schema/Brick#hasSubstance": [
-            "https://brickschema.org/schema/Brick#Substance"
-        ],
-        "https://brickschema.org/schema/Brick#meters": [
-            "https://brickschema.org/schema/Brick#Equipment",
-            "https://brickschema.org/schema/Brick#Location",
-            "https://brickschema.org/schema/Brick#Collection"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Tag": {
-        "https://brickschema.org/schema/Brick#isAssociatedWith": [
-            "http://www.w3.org/2002/07/owl#Class"
-        ],
-        "https://brickschema.org/schema/Brick#isTagOf": [
-            "https://brickschema.org/schema/Brick#Entity",
-            "https://brickschema.org/schema/Brick#Measurable"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Location": {
-        "https://brickschema.org/schema/Brick#isLocationOf": [
-            "https://brickschema.org/schema/Brick#Entity"
-        ],
-        "https://brickschema.org/schema/Brick#isFedBy": [
-            "https://brickschema.org/schema/Brick#Equipment"
-        ],
-        "https://brickschema.org/schema/Brick#isMeteredBy": [
-            "https://brickschema.org/schema/Brick#Meter"
-        ],
-        "https://brickschema.org/schema/Brick#hasPoint": [
-            "https://brickschema.org/schema/Brick#Point"
-        ],
-        "https://brickschema.org/schema/Brick#isPartOf": [
-            "https://brickschema.org/schema/Brick#Location",
-            "https://w3id.org/rec#Space"
-        ],
-        "https://w3id.org/rec#isPartOf": [
-            "https://brickschema.org/schema/Brick#Location",
-            "https://w3id.org/rec#Space"
-        ],
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Location",
-            "https://w3id.org/rec#Space"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Location",
-            "https://w3id.org/rec#Space"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Point": {
-        "https://brickschema.org/schema/Brick#hasSubstance": [
-            "https://brickschema.org/schema/Brick#Substance"
-        ],
-        "https://brickschema.org/schema/Brick#isPointOf": [
-            "https://brickschema.org/schema/Brick#Equipment",
-            "https://brickschema.org/schema/Brick#Location",
-            "https://w3id.org/rec#Space"
-        ],
-        "https://brickschema.org/schema/Brick#hasQuantity": [
-            "https://brickschema.org/schema/Brick#Quantity",
-            "http://qudt.org/schema/qudt/QuantityKind"
-        ],
-        "https://brickschema.org/schema/Brick#hasUnit": [
-            "http://qudt.org/schema/qudt/Unit"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Collection": {
-        "https://brickschema.org/schema/Brick#isMeteredBy": [
-            "https://brickschema.org/schema/Brick#Meter"
-        ],
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Equipment",
-            "https://brickschema.org/schema/Brick#Location",
-            "https://w3id.org/rec#Space",
-            "https://brickschema.org/schema/Brick#Point",
-            "https://brickschema.org/schema/Brick#Collection"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Equipment",
-            "https://brickschema.org/schema/Brick#Location",
-            "https://w3id.org/rec#Space",
-            "https://brickschema.org/schema/Brick#Point",
-            "https://brickschema.org/schema/Brick#Collection"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Radiant_Panel_Temperature_Sensor": {
-        "https://brickschema.org/schema/Brick#isPointOf": [
-            "https://brickschema.org/schema/Brick#Radiant_Panel"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Building_Meter": {
-        "https://brickschema.org/schema/Brick#meters": [
-            "https://brickschema.org/schema/Brick#Building"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Lighting_Equipment": {
-        "https://brickschema.org/schema/Brick#feeds": [
-            "https://brickschema.org/schema/Brick#Lighting_Equipment",
-            "https://w3id.org/rec#Space"
-        ],
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Lighting_Equipment",
-            "https://brickschema.org/schema/Brick#Electrical_Equipment"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Lighting_Equipment",
-            "https://brickschema.org/schema/Brick#Electrical_Equipment"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#HVAC_Equipment": {
-        "https://brickschema.org/schema/Brick#feeds": [
-            "https://brickschema.org/schema/Brick#HVAC_Equipment",
-            "https://brickschema.org/schema/Brick#Valve",
-            "https://w3id.org/rec#Space"
-        ],
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#HVAC_Equipment",
-            "https://brickschema.org/schema/Brick#Valve"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#HVAC_Equipment",
-            "https://brickschema.org/schema/Brick#Valve"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Portfolio": {
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Site"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Site"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Hub": {
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Station"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Station"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Station": {
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Port"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Electric_Vehicle_Charging_Port"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Photovoltaic_Array": {
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#PV_Panel"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#PV_Panel"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Site": {
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Building",
-            "https://brickschema.org/schema/Brick#Region",
-            "https://brickschema.org/schema/Brick#Site",
-            "https://brickschema.org/schema/Brick#Space",
-            "https://brickschema.org/schema/Brick#Room"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Building",
-            "https://brickschema.org/schema/Brick#Region",
-            "https://brickschema.org/schema/Brick#Site",
-            "https://brickschema.org/schema/Brick#Space",
-            "https://brickschema.org/schema/Brick#Room"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Loop": {
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Equipment",
-            "https://brickschema.org/schema/Brick#Point",
-            "https://brickschema.org/schema/Brick#Location"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Equipment",
-            "https://brickschema.org/schema/Brick#Point",
-            "https://brickschema.org/schema/Brick#Location"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Zone": {
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Space",
-            "https://brickschema.org/schema/Brick#Wing",
-            "https://brickschema.org/schema/Brick#Outdoor_Area",
-            "https://brickschema.org/schema/Brick#Floor"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Space",
-            "https://brickschema.org/schema/Brick#Wing",
-            "https://brickschema.org/schema/Brick#Outdoor_Area",
-            "https://brickschema.org/schema/Brick#Floor"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#Floor": {
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Room",
-            "https://brickschema.org/schema/Brick#Space",
-            "https://brickschema.org/schema/Brick#Zone"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Room",
-            "https://brickschema.org/schema/Brick#Space",
-            "https://brickschema.org/schema/Brick#Zone"
-        ]
-    },
-    "https://brickschema.org/schema/Brick#System": {
-        "https://brickschema.org/schema/Brick#hasPart": [
-            "https://brickschema.org/schema/Brick#Equipment",
-            "https://brickschema.org/schema/Brick#Point",
-            "https://brickschema.org/schema/Brick#Loop",
-            "https://brickschema.org/schema/Brick#System",
-            "https://brickschema.org/schema/Brick#Location",
-            "https://brickschema.org/schema/Brick#PV_Array"
-        ],
-        "https://w3id.org/rec#hasPart": [
-            "https://brickschema.org/schema/Brick#Equipment",
-            "https://brickschema.org/schema/Brick#Point",
-            "https://brickschema.org/schema/Brick#Loop",
-            "https://brickschema.org/schema/Brick#System",
-            "https://brickschema.org/schema/Brick#Location",
-            "https://brickschema.org/schema/Brick#PV_Array"
-        ]
-    },
-    "http://www.w3.org/2000/01/rdf-schema#Resource": {
-        "https://brickschema.org/schema/Brick#value": [
-            "http://www.w3.org/2000/01/rdf-schema#Resource"
-        ]
-    }
+    "https://brickschema.org/schema/Brick#ratedMaximumCurrentInput": "Label: Rated maximum current input | Definition: The maximum current that can be input to the entity",
+    "https://w3id.org/rec#isLocationOf": "Label: isLocationOf",
+    "https://brickschema.org/schema/Brick#electricalPhaseCount": "Label: Electrical phase count | Definition: Entity has these phases",
+    "https://w3id.org/rec#isPartOf": "Label: isPartOf",
+    "https://w3id.org/rec#servicedBy": "Label: servicedBy",
+    "https://brickschema.org/schema/Brick#latitude": "Label: Latitude",
+    "https://brickschema.org/schema/Brick#meters": "Label: meters | Definition: Indicates the entity whose consumption/production of some substance is measured by this meter.",
+    "https://brickschema.org/schema/Brick#measuredModuleConversionEfficiency": "Label: Measured module conversion efficiency | Definition: The measured percentage of sunlight that is converted into usable power",
+    "https://brickschema.org/schema/Brick#hasAmbientTemperature": "Label: hasAmbientTemperature",
+    "https://brickschema.org/schema/Brick#hasSubstance": "Label: Has Substance",
+    "https://w3id.org/rec#coordinateSystem": "Label: coordinateSystem",
+    "https://brickschema.org/schema/Brick#isPartOf": "Label: Is part of",
+    "https://w3id.org/rec#georeference": "Label: georeference",
+    "https://brickschema.org/schema/Brick#temperatureCoefficientofPmax": "Label: Temperature coefficient | Definition: The % change in power output for every degree celsius that the entity is hotter than 25 degrees celsius",
+    "https://brickschema.org/schema/Brick#Relationship": "Label: Relationship | Definition: Super-property of all Brick relationships between entities (Equipment, Location, Point)",
+    "https://brickschema.org/schema/Brick#electricVehicleChargerType": "Label: has electric vehicle charger type | Definition: Which type of EVSE charger this is, e.g. Level 1 (up to up to 2.5kW of AC power on 1 phase 120V input), Level 2 (direct AC power but can use higher voltage and up to 3 phases), or Level 3 (direct DC power)",
+    "https://w3id.org/rec#includes": "Label: includes",
+    "https://w3id.org/rec#architectedBy": "Label: architectedBy",
+    "https://w3id.org/rec#constructedBy": "Label: constructedBy",
+    "https://w3id.org/rec#mountedOn": "Label: mountedOn",
+    "https://w3id.org/rec#leasee": "Label: leasee",
+    "https://brickschema.org/schema/Brick#hasQUDTReference": "Label: Has QUDT reference | Definition: Points to the relevant QUDT definition",
+    "https://w3id.org/rec#url": "Label: url",
+    "https://brickschema.org/schema/Brick#coolingCapacity": "Label: Cooling capacity | Definition: Measurement of a chiller ability to remove heat (adopted from Project Haystack)",
+    "https://brickschema.org/schema/Brick#netArea": "Label: Net area | Definition: Entity has net 2-dimensional area",
+    "https://brickschema.org/schema/Brick#connectedTo": "Label: Connected To",
+    "https://w3id.org/rec#area": "Label: area",
+    "https://w3id.org/rec#locatedIn": "Label: locatedIn",
+    "https://brickschema.org/schema/Brick#ratedModuleConversionEfficiency": "Label: Rated module conversion efficiency | Definition: The *rated* percentage of sunlight that is converted into usable power, as measured using Standard Test Conditions (STC): 1000 W/sqm irradiance, 25 degC panel temperature, no wind",
+    "https://brickschema.org/schema/Brick#panelArea": "Label: Panel area | Definition: Surface area of a panel, such as a PV panel",
+    "https://brickschema.org/schema/Brick#isFedBy": "Label: Is fed by",
+    "https://brickschema.org/schema/Brick#electricalFlow": "Label: Electrical flow direction | Definition: Entity has this electrical flow relative to the building'",
+    "https://w3id.org/rec#producedBy": "Label: producedBy",
+    "https://brickschema.org/schema/Brick#ratedPowerInput": "Label: Rated power input | Definition: The nominal rated power input of the entity",
+    "https://brickschema.org/schema/Brick#hasUnit": "Label: Has unit | Definition: The QUDT unit associated with this Brick entity (usually a Brick Point instance or Entity Property)",
+    "https://brickschema.org/schema/Brick#aliasOf": "Label: aliasOf",
+    "https://brickschema.org/schema/Brick/ref#hasExternalReference": "Label: hasExternalReference | Definition: Points to the external reference for this entity, which contains additional metadata/data not included in this graph.",
+    "https://brickschema.org/schema/Brick#value": "Label: Value | Definition: The basic value of an entity property",
+    "https://brickschema.org/schema/Brick#ratedMinimumVoltageInput": "Label: Rated minimum voltage input | Definition: The minimum voltage that can be input to the entity",
+    "https://w3id.org/rec#regulates": "Label: regulates",
+    "https://brickschema.org/schema/Brick#isPointOf": "Label: Is point of | Definition: The subject is a source of telemetry related to the object. In some systems the source of telemetry may be represented as a digital/analog input/output point",
+    "https://brickschema.org/schema/Brick#lastKnownValue": "Label: Last known value | Definition: The last known value of the Point entity",
+    "https://brickschema.org/schema/Brick#yearBuilt": "Label: Year built | Definition: Four digit year that a building was first built. (adopted from Project Haystack)",
+    "https://brickschema.org/schema/Brick#ratedVoltageInput": "Label: Measured voltage input | Definition: The nominal rated voltage input of the entity",
+    "https://w3id.org/rec#hasPart": "Label: hasPart",
+    "https://brickschema.org/schema/Brick#hasPart": "Label: Has part | Definition: The subject is composed in part of the entity given by the object",
+    "https://w3id.org/rec#hasMember": "Label: hasMember",
+    "https://brickschema.org/schema/Brick#aggregate": "Label: Aggregate | Definition: Description of how the data for this point is aggregated",
+    "https://w3id.org/rec#relatedTo": "Label: relatedTo",
+    "https://brickschema.org/schema/Brick#tilt": "Label: Tilt | Definition: The direction an entity is facing in degrees above the horizon",
+    "https://brickschema.org/schema/Brick/ref#hasTimeseriesReference": "Label: hasTimeseriesReference | Definition: Metadata for accessing related timeseries data: Relates a data source (such as a Brick Point or 223 Property) to the TimeseriesReference that indicates where and how the data for this point is stored",
+    "https://brickschema.org/schema/Brick#deprecationMitigationMessage": "Label: deprecationMitigationMessage",
+    "https://brickschema.org/schema/Brick#isSubMeterOf": "Label: is sub-meter of | Definition: Indicates the parent for which this meter is a submeter",
+    "https://brickschema.org/schema/Brick#hasLocation": "Label: Has location | Definition: Subject is physically located in the location given by the object",
+    "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": "Label: ambientTemperatureOfMeasurement",
+    "https://brickschema.org/schema/Brick#area": "Label: Area | Definition: Entity has 2-dimensional area",
+    "https://w3id.org/rec#objectOfInterest": "Label: objectOfInterest",
+    "https://brickschema.org/schema/Brick#isTagOf": "Label: Is tag of",
+    "https://brickschema.org/schema/Brick#conversionEfficiency": "Label: Conversion efficiency | Definition: The percent efficiency of the conversion process (usually to power or energy) carried out by the entity",
+    "https://w3id.org/rec#adjacentElement": "Label: adjacentElement",
+    "https://brickschema.org/schema/Brick#electricVehicleConnectorType": "Label: has electric vehicle connector type | Definition: Identifies which kind of connector the port has. This property helps identify the physical connection required between the vehicle and the charging equipment.",
+    "https://w3id.org/rec#operatedBy": "Label: operatedBy",
+    "https://brickschema.org/schema/Brick#hasAssociatedTag": "Label: Has associated tag | Definition: The class is associated with the given tag",
+    "https://w3id.org/rec#manufacturedBy": "Label: manufacturedBy",
+    "https://brickschema.org/schema/Brick#ratedMinimumCurrentOutput": "Label: Rated minimum current output | Definition: The minimum current that can be output by the entity",
+    "https://brickschema.org/schema/Brick#electricalPhases": "Label: Electrical phases | Definition: Entity has these electrical AC phases",
+    "https://brickschema.org/schema/Brick#operationalStageCount": "Label: Operational stage count | Definition: The number of operational stages supported by this equipment",
+    "https://brickschema.org/schema/Brick#volume": "Label: Volume | Definition: Entity has 3-dimensional volume",
+    "https://w3id.org/rec#isMemberOf": "Label: isMemberOf",
+    "https://brickschema.org/schema/Brick#ratedCurrentInput": "Label: Rated current input | Definition: The nominal rated current input of the entity",
+    "https://w3id.org/rec#address": "Label: address",
+    "https://w3id.org/rec#containsElement": "Label: containsElement",
+    "https://brickschema.org/schema/Brick#ratedMaximumVoltageInput": "Label: Rated maximum voltage input | Definition: The maximum voltage that can be input to the entity",
+    "https://brickschema.org/schema/Brick#ratedMaximumCurrentOutput": "Label: Rated maximum current output | Definition: The maximum current that can be output by the entity",
+    "https://brickschema.org/schema/Brick#hasSubMeter": "Label: has sub-meter | Definition: Indicates a submeter of this meter",
+    "https://w3id.org/rec#intersectingElement": "Label: intersectingElement",
+    "https://w3id.org/rec#initialCost": "Label: initialCost",
+    "https://w3id.org/rec#leasor": "Label: leasor",
+    "https://w3id.org/rec#sourcePoint": "Label: sourcePoint",
+    "https://brickschema.org/schema/Brick#electricalComplexPower": "Label: electrical complex power type | Definition: Associated electrical complexity with the entity",
+    "https://w3id.org/rec#owns": "Label: owns",
+    "https://w3id.org/rec#ownedBy": "Label: ownedBy",
+    "https://brickschema.org/schema/Brick#buildingThermalTransmittance": "Label: Building thermal transmittance | Definition: The area-weighted average heat transfer coefficient (commonly referred to as a U-value) for a building envelope",
+    "https://brickschema.org/schema/Brick#ratedMinimumCurrentInput": "Label: Rated minimum current input | Definition: The minimum current that can be input to the entity",
+    "https://brickschema.org/schema/Brick#isLocationOf": "Label: Is location of | Definition: Subject is the physical location encapsulating the object",
+    "https://brickschema.org/schema/Brick#measuredPowerOutput": "Label: Measured power output | Definition: The nominal measured power output of the entity",
+    "https://brickschema.org/schema/Brick#feeds": "Label: Feeds | Definition: The subject is upstream of the object in the context of some sequential process; some media is passed between them",
+    "https://brickschema.org/schema/Brick#ratedVoltageOutput": "Label: Rated voltage output | Definition: The nominal rated voltage output of the entity",
+    "https://brickschema.org/schema/Brick#grossArea": "Label: Gross area | Definition: Entity has gross 2-dimensional area",
+    "https://brickschema.org/schema/Brick#hasInputSubstance": "Label: Has input substance | Definition: The subject receives the given substance as an input to its internal process",
+    "https://w3id.org/rec#regulatedBy": "Label: regulatedBy",
+    "https://brickschema.org/schema/Brick#electricVehicleChargerDirectionality": "Label: has electric vehicle charger directionality | Definition: Indicates if the EVSE charger supports bidirectional charging or just unidirectional charging of the EV battery",
+    "https://brickschema.org/schema/Brick#hasTag": "Label: Has tag | Definition: The subject has the given tag",
+    "https://brickschema.org/schema/Brick#hasQuantity": "Label: Has Quantity",
+    "https://w3id.org/rec#acknowledgedBy": "Label: acknowledgedBy",
+    "https://brickschema.org/schema/Brick#ratedMaximumVoltageOutput": "Label: Rated maximum voltage output | Definition: The maximum voltage that can be output by the entity",
+    "https://brickschema.org/schema/Brick#azimuth": "Label: Azimuth | Definition: (Horizontal) angle between a projected vector and a reference vector (typically a compass bearing). The projected vector usually indicates the direction of a face or plane.",
+    "https://brickschema.org/schema/Brick#thermalTransmittance": "Label: Thermal transmittance | Definition: The area-weighted average heat transfer coefficient (commonly referred to as a U-value)",
+    "https://w3id.org/rec#hasPoint": "Label: hasPoint",
+    "https://w3id.org/rec#installedBy": "Label: installedBy",
+    "https://brickschema.org/schema/Brick/ref#hasIfcProjectReference": "Label: hasIfcProjectReference | Definition: A reference to the IFC Project that defines this entity",
+    "https://brickschema.org/schema/Brick#currentFlowType": "Label: Current flow type | Definition: The current flow type of the entity",
+    "https://brickschema.org/schema/Brick#isVirtualMeter": "Label: is virtual meter | Definition: True if the associated meter is 'virtual', i.e. a logical meter which includes or aggregates information from a variety of sources such as other submeters or equipment.",
+    "https://brickschema.org/schema/Brick#ratedCurrentOutput": "Label: Rated current output | Definition: The nominal rated current output of the entity",
+    "https://brickschema.org/schema/Brick#longitude": "Label: Longitude",
+    "https://brickschema.org/schema/Brick#isAssociatedWith": "Label: Is associated with | Definition: The tag is associated with the given class",
+    "https://w3id.org/rec#targetPoint": "Label: targetPoint",
+    "https://brickschema.org/schema/Brick#timestamp": "Label: Timestamp",
+    "https://w3id.org/rec#capacity": "Label: capacity",
+    "https://brickschema.org/schema/Brick#hasOutputSubstance": "Label: Has output substance | Definition: The subject produces or exports the given substance from its internal process",
+    "https://brickschema.org/schema/Brick#isMeteredBy": "Label: is metered by | Definition: Indicates the meter measuring the consumption/production of some substance by the subject entity",
+    "https://brickschema.org/schema/Brick#ratedMinimumVoltageOutput": "Label: Rated minimum voltage output | Definition: The minimum voltage that can be output by the entity",
+    "https://w3id.org/rec#commissionedBy": "Label: commissionedBy",
+    "https://brickschema.org/schema/Brick#deprecation": "Label: Deprecation Notice | Definition: Marks a concept as deprecated",
+    "https://brickschema.org/schema/Brick#buildingPrimaryFunction": "Label: Building primary function | Definition: Enumerated string applied to a site record to indicate the building's primary function. The list of primary functions is derived from the US Energy Star program (adopted from Project Haystack)",
+    "https://w3id.org/rec#isFedBy": "Label: isFedBy",
+    "https://brickschema.org/schema/Brick#operationalStage": "Label: Operational stage | Definition: The associated operational stage",
+    "https://brickschema.org/schema/Brick#coordinates": "Label: Coordinates | Definition: The location of an entity in latitude/longitude",
+    "https://brickschema.org/schema/Brick#resolution": "Label: Resolution | Definition: The resolution of the entity specifing the smallest measurable or controllable increment",
+    "https://brickschema.org/schema/Brick#deprecationMitigationRule": "Label: deprecationMitigationRule",
+    "https://brickschema.org/schema/Brick#measuredPowerInput": "Label: Measured power input | Definition: The nominal measured power input of the entity",
+    "https://brickschema.org/schema/Brick#deprecatedInVersion": "Label: deprecatedInVersion",
+    "https://w3id.org/rec#documentation": "Label: documentation",
+    "https://w3id.org/rec#documentTopic": "Label: documentTopic",
+    "https://w3id.org/rec#closedBy": "Label: closedBy",
+    "https://brickschema.org/schema/Brick#hasAddress": "Label: Has address | Definition: To specify the address of a building.",
+    "https://brickschema.org/schema/Brick#aggregationFunction": "Label: aggregationFunction",
+    "https://brickschema.org/schema/Brick#hasPoint": "Label: Has point | Definition: The subject has a source of telemetry identified by the object. In some systems the source of telemetry may be represented as a digital/analog input/output point",
+    "https://brickschema.org/schema/Brick#ratedPowerOutput": "Label: Rated power output | Definition: The nominal rated power output of the entity",
+    "https://w3id.org/rec#leaseOf": "Label: leaseOf",
+    "https://w3id.org/rec#createdBy": "Label: createdBy",
+    "https://brickschema.org/schema/Brick#isReplacedBy": "Label: Is replaced by"
 }

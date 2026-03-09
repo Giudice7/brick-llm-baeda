@@ -37,31 +37,25 @@ def extract_properties_agent(state: WorkflowState, config: RunnableConfig) -> Wo
     llm = config.get("configurable", {}).get("model")
 
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    properties_path = os.path.join(base_dir, "ontologies", ontology_name, "properties.json")
+    properties_path = os.path.join(base_dir, "ontologies", ontology_name, "relationships.json")
 
     try:
         with open(properties_path, "r", encoding="utf-8") as f:
             available_properties = json.load(f)
-            available_properties = get_unique_properties(available_properties)
     except FileNotFoundError:
         available_properties = {}
 
 
     system_message = f"""
-    You are an ontology mapping agent. Your task is to identify the data properties described in the user input. The ontology you are working with is {ontology_name}.
-
-    Data properties describe the quantitative or qualitative attributes of an entity, connecting an object to a literal value (e.g., a number, string, or boolean). Examples include a device's 'cooling capacity', 'electrical consumption', or 'maximum limit'. 
+    You are an ontology mapping agent. Your task is to identify the properties, both object properties and data properties, described in the user input that matches the ones provided by an ontology. The ontology you are working with is {ontology_name}.
 
     Here is the complete dictionary of available properties, their labels, and descriptions:
     {json.dumps(available_properties, indent=2)}
 
     # GENERAL INSTRUCTIONS:
-    Analyze the user's text carefully. If the user explicitly mentions or clearly implies any of these properties, select the corresponding URI.
-    Crucially, if the text does NOT contain any concepts that map to these properties, you MUST return an empty list. Do not force a match if one does not logically exist.
-
+    Analyze the user's text carefully. If the user mentions or implies any of these properties, select the corresponding URI.
     {user_instructions}
-
-    Once you have finished exploring, return the result as a structured output in the format specified by the IdentifiedDataProperties schema, with the key "selected_properties" containing a list of the final URIs you have identified.
+    Return the result as a structured output in the format specified by the IdentifiedDataProperties schema, with the key "selected_properties" containing a list of the final URIs you have identified.
     """
 
     agent = create_agent(
@@ -103,10 +97,26 @@ if __name__ == "__main__":
     load_dotenv()
 
     description = """
-    The facility is a small commercial building with a total floor area of 450 square meters. 
-    The building's climate is managed by a single Air Handling Unit located on the roof. 
-    This Air Handling Unit contains a heating coil that provides a heating capacity of 15 kW 
-    and a cooling coil that provides a cooling capacity of 22 kW.
+    The building, with a floor area of 450 square meters, is composed by 5 HVAC zones.
+    An Air Handling Unit feeds all the HVAC zones.
+    Each HVAC zone has a zone air temperature sensor.
+    The Air Handling Unit is composed by the following equipments: a cooling coil, a supply fan, a return fan, an outside damper and a return damper.
+    Each equipment has the following sensors:
+    - The cooling coil has a valve position sensor
+    - The outdoor air damper has a damper position sensor
+    - The return air damper has a damper position sensor
+    - The return fan has a speed setpoint and a speed status
+    - The supply fan has a speed setpoint and a speed status
+    The Air Handling Unit is equipped with the following sensors:
+    - a supply air temperature sensor
+    - a return air temperature sensor
+    - an outside air temperature sensor
+    - a mixed air temperature sensor
+    - a supply air temperature setpoint
+    - an operating mode status
+    - a supply air flow sensor
+    - a return air flow sensor
+    - and an outside air flow sensor.
     """
 
     llm_instance = ChatOpenAI(
@@ -117,7 +127,7 @@ if __name__ == "__main__":
     test_state = {
         "user_input": description,
         "ontology_name": "Brick",
-        "user_instructions_dataproperty_extractor": ""
+        "user_instructions_property_extractor": ""
     }
 
     test_config = {
@@ -129,7 +139,7 @@ if __name__ == "__main__":
     result = extract_properties_agent(test_state, test_config)
 
     print("Identified Data Properties:")
-    for property_uri in result.get("identified_dataproperties", []):
+    for property_uri in result.get("identified_properties", []):
         print(property_uri)
 
     print(f"\nInput Tokens: {result.get('input_tokens_property_extractor')}")
