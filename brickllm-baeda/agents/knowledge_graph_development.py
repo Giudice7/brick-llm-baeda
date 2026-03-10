@@ -7,9 +7,10 @@ from langchain.agents import create_agent
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langchain_core.runnables import RunnableConfig
 
-from schemas import ExtractedTriples, IdentifiedEntities, IdentifiedProperties
+from schemas import ExtractedTriples, IdentifiedEntities, IdentifiedProperties, IdentifiedRelationships
 from states import WorkflowState
-from utils.artifacts import get_supported_relationships
+from ontologies import onto_retriever_mapping
+from utils.llms import calculate_token_usage
 
 
 def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> WorkflowState:
@@ -21,7 +22,11 @@ def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> Workf
     identified_properties = state.get("identified_properties", [])
     if isinstance(identified_properties, IdentifiedProperties):
         identified_properties = identified_properties.selected_properties
-    user_instructions = state.get("user_instructions_relationship_extractor", "")
+    identified_relationships = state.get("identified_relationships", [])
+    if isinstance(identified_relationships, IdentifiedRelationships):
+        identified_relationships = identified_relationships.selected_relationships
+
+    user_instructions = state.get("user_instructions_kg_development", "")
     uri = state.get("uri", "https://example.com/building#")
 
     logger.info(f"🏗️ Building initial {ontology_name} knowledge graph")
@@ -34,12 +39,13 @@ def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> Workf
     llm = config.get("configurable", {}).get("model")
 
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    ontology_dir = os.path.join(base_dir, "ontologies", ontology_name)
-    ontology = rdflib.Graph().parse(os.path.join(ontology_dir, "ontology.ttl"), format="turtle")
 
-    supported_relationships = get_supported_relationships(identified_entities,
-                                                          identified_properties,
-                                                          ontology)
+    onto_retriever = onto_retriever_mapping[ontology_name]
+
+    supported_relationships = onto_retriever.get_supported_relationships(
+        identified_entities,
+        identified_relationships,
+        identified_properties)
 
     system_message = f"""
         You are an ontology Knowledge Graph building agent. Your task is to instantiate entities from the text and connect them. The ontology you are working with is {ontology_name}.
@@ -47,8 +53,11 @@ def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> Workf
         Here are the specific ontology classes identified in the text:
         {json.dumps(identified_entities, indent=2)}
 
-        Here are the properties identified in the text (with their extracted values):
+        Here are the properties identified in the text:
         {json.dumps(identified_properties, indent=2)}
+        
+        Here are the relationships identified in the text:
+        {json.dumps(identified_relationships, indent=2)}
 
         Here is the context dictionary mapping the identified entities to their ALLOWED structural relationships and properties:
         {json.dumps(supported_relationships, indent=2)}
@@ -88,14 +97,8 @@ def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> Workf
     response = agent.invoke({"messages": [HumanMessage(content=user_input)]})
 
     messages = response["messages"]
-    input_tokens = 0
-    output_tokens = 0
-    for message in messages:
-        if isinstance(message, AIMessage):
-            input_tokens += message.usage_metadata["input_tokens"]
-            output_tokens += message.usage_metadata["output_tokens"]
-
     final_message = response["messages"][-1].content
+    input_tokens, output_tokens = calculate_token_usage(messages)
 
     try:
         parsed_data = ExtractedTriples.model_validate_json(final_message)
@@ -128,68 +131,7 @@ def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> Workf
 
     return {
         "rdf_graphs": [g],
-        "input_tokens_knowledge_graph_development": input_tokens,
-        "output_tokens_knowledge_graph_development": output_tokens,
+        "input_token_details": [input_tokens],
+        "output_token_details": [output_tokens],
         "supported_relationships": supported_relationships
     }
-
-
-if __name__ == "__main__":
-    from langchain_openai import ChatOpenAI
-    from dotenv import load_dotenv
-
-    load_dotenv()
-
-    description = """
-    The facility is a small commercial building with a total floor area of 450 square meters. 
-    The building's climate is managed by a single Air Handling Unit located on the roof. 
-    This Air Handling Unit contains a heating coil, a supply and a return fan, and outside, return and exhaust dampers.
-    The return and supply fan's power consumption are measured by power sensors, which are connected to a meter.
-    The IDs of the timeseries are:
-    'fkhjs-trhjd-j43fd' for the supply fan
-    'erds-egsg-6gdfg' for the return fan.
-    """
-
-    test_entities = [
-        "https://w3id.org/rec#Building",
-        "https://brickschema.org/schema/Brick#Air_Handling_Unit",
-        "https://brickschema.org/schema/Brick#Heating_Coil",
-        "https://brickschema.org/schema/Brick#Supply_Fan",
-        "https://brickschema.org/schema/Brick#Return_Fan",
-        "https://brickschema.org/schema/Brick#Outside_Damper",
-        "https://brickschema.org/schema/Brick#Return_Damper",
-        "https://brickschema.org/schema/Brick#Exhaust_Damper",
-        "https://brickschema.org/schema/Brick#Power_Sensor",
-        "https://brickschema.org/schema/Brick#Meter",
-        "https://brickschema.org/schema/Brick/ref#TimeseriesReference"
-    ]
-
-    test_properties = [
-        "https://brickschema.org/schema/Brick/ref#hasTimeseriesId",
-        "https://w3id.org/rec#area",
-        "https://brickschema.org/schema/Brick/ref#hasExternalReference"
-    ]
-
-    llm_instance = ChatOpenAI(
-        model="gpt-5-mini",
-        temperature=0
-    )
-
-    test_state = {
-        "user_input": description,
-        "ontology_name": "Brick",
-        "identified_entities": test_entities,
-        "identified_properties": test_properties,
-        "user_instructions_relationship_extractor": ""
-    }
-
-    test_config = {
-        "configurable": {
-            "model": llm_instance
-        }
-    }
-
-    result = knowledge_graph_agent(test_state, test_config)
-
-    print("Serialized Graph:\n")
-    print(result.get("rdf_graph").serialize(format="turtle"))

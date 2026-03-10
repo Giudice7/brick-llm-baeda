@@ -5,7 +5,7 @@ from langgraph.graph import StateGraph, START, END
 
 from states import WorkflowState
 from validation import validation_node, route_after_validation
-from agents import extract_entities_agent, extract_properties_agent, knowledge_graph_agent, \
+from agents import extract_entities_agent, extract_properties_agent, extract_relationships_agent, knowledge_graph_agent, \
     knowledge_graph_refactoring_agent
 
 
@@ -28,14 +28,17 @@ class BuildingKnowledgeGraphBuilder:
 
         self.workflow.add_node("entity_extractor", extract_entities_agent)
         self.workflow.add_node("properties_extractor", extract_properties_agent)
+        self.workflow.add_node("relationships_extractor", extract_relationships_agent)
         self.workflow.add_node("knowledge_graph_agent", knowledge_graph_agent)
         self.workflow.add_node("validation_node", validation_node)
         self.workflow.add_node("knowledge_graph_refactoring", knowledge_graph_refactoring_agent)
 
         self.workflow.add_edge(START, "entity_extractor")
         self.workflow.add_edge(START, "properties_extractor")
+        self.workflow.add_edge(START, "relationships_extractor")
 
-        self.workflow.add_edge(["entity_extractor", "properties_extractor"], "knowledge_graph_agent")
+        self.workflow.add_edge(["entity_extractor", "properties_extractor", "relationships_extractor"],
+                               "knowledge_graph_agent")
 
         self.workflow.add_edge("knowledge_graph_agent", "validation_node")
 
@@ -68,7 +71,8 @@ class BuildingKnowledgeGraphBuilder:
             self.result = self.workflow.invoke(input_data, self.config)
             return self.result
 
-    def fix_malformed_literals(self, g: rdflib.Graph) -> rdflib.Graph:
+    @staticmethod
+    def fix_malformed_literals(g: rdflib.Graph) -> rdflib.Graph:
         triples_to_remove = []
         triples_to_add = []
 
@@ -110,3 +114,29 @@ class BuildingKnowledgeGraphBuilder:
         cleaned_graph = self.fix_malformed_literals(raw_graph)
 
         return cleaned_graph
+
+    @staticmethod
+    def calculate_token_usage(token_list: List[Dict[str, int]]) -> Dict[str, int]:
+        aggregated_usage = {}
+        if not token_list:
+            return aggregated_usage
+
+        for token_dict in token_list:
+            for key, count in token_dict.items():
+                if key not in aggregated_usage:
+                    aggregated_usage[key] = 0
+                aggregated_usage[key] += count
+
+        return aggregated_usage
+
+    def get_token_usage_summary(self) -> Dict[str, Dict[str, int]]:
+        if self.result is None:
+            raise ValueError("No result available. Please run the workflow first.")
+
+        input_details = self.result["input_token_details"]
+        output_details = self.result["output_token_details"]
+
+        return {
+            "input_tokens": self.calculate_token_usage(input_details),
+            "output_tokens": self.calculate_token_usage(output_details)
+        }

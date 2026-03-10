@@ -1,0 +1,227 @@
+{
+    "https://brickschema.org/schema/Brick/ref#bacnet-read-property": {
+        "description": "The property of the BACnet object to read to get the current value of this entity."
+    },
+    "http://data.ashrae.org/bacnet/2020#description": {
+        "description": "The content of the description field of the BACnet object."
+    },
+    "http://data.ashrae.org/bacnet/2020#object-identifier": {
+        "description": "The BACnet object identifier"
+    },
+    "http://data.ashrae.org/bacnet/2020#object-name": {
+        "description": "The content of the name field of the BACnet object."
+    },
+    "http://data.ashrae.org/bacnet/2020#object-type": {
+        "description": "The type of the BACnet object"
+    },
+    "https://brickschema.org/schema/Brick#aggregationInterval": {
+        "description": "Interval expressed in an ISO 8601 Duration string, e.g. RP1D"
+    },
+    "https://brickschema.org/schema/Brick/ref#BACnetURI": {
+        "description": "Clause Q.8 BACnet URI scheme: bacnet:// <device> / <object> [ / <property> [ / <index> ]]"
+    },
+    "https://brickschema.org/schema/Brick/ref#hasTimeseriesId": {
+        "description": "The unique identifier (primary key) for this TimeseriesReference in some database The identifier for the timeseries data corresponding to this point"
+    },
+    "https://brickschema.org/schema/Brick/ref#ifcFileLocation": {
+        "description": ""
+    },
+    "https://brickschema.org/schema/Brick/ref#ifcGlobalID": {
+        "description": "The global ID of the entity in the IFC project The IFC Global ID of the entity"
+    },
+    "https://brickschema.org/schema/Brick/ref#ifcName": {
+        "description": "The name of the IFC entity Name of the entity in IFC"
+    },
+    "https://brickschema.org/schema/Brick/ref#ifcProjectID": {
+        "description": "The IFC ID of the containing project"
+    },
+    "https://brickschema.org/schema/Brick/ref#preferred": {
+        "description": "An entity can have one 'preferred' External Reference. Consumers of the model should prioritize any external reference with the 'preferred' property"
+    },
+    "https://brickschema.org/schema/Brick/ref#storedAt": {
+        "description": "Refers to a database storing the timeseries data for the related point. Properties on this class are *to be determined*; feel free to add arbitrary properties onto Database instances for your particular deployment A reference to where the data for this TimeseriesReference is stored"
+    },
+    "https://w3id.org/rec#IPAddress": {
+        "description": ""
+    },
+    "https://w3id.org/rec#MACAddress": {
+        "description": ""
+    },
+    "https://w3id.org/rec#acknowledgedTime": {
+        "description": ""
+    },
+    "https://w3id.org/rec#addressLine1": {
+        "description": ""
+    },
+    "https://w3id.org/rec#addressLine2": {
+        "description": ""
+    },
+    "https://w3id.org/rec#assetTag": {
+        "description": ""
+    },
+    "https://w3id.org/rec#city": {
+        "description": ""
+    },
+    "https://w3id.org/rec#closedTime": {
+        "description": ""
+    },
+    "https://w3id.org/rec#commissioningDate": {
+        "description": ""
+    },
+    "https://w3id.org/rec#country": {
+        "description": ""
+    },
+    "https://w3id.org/rec#createdTime": {
+        "description": ""
+    },
+    "https://w3id.org/rec#currentLevel": {
+        "description": ""
+    },
+    "https://w3id.org/rec#end": {
+        "description": ""
+    },
+    "https://w3id.org/rec#endLevel": {
+        "description": ""
+    },
+    "https://w3id.org/rec#familyName": {
+        "description": ""
+    },
+    "https://w3id.org/rec#gender": {
+        "description": ""
+    },
+    "https://w3id.org/rec#givenName": {
+        "description": ""
+    },
+    "https://w3id.org/rec#grossArea": {
+        "description": ""
+    },
+    "https://w3id.org/rec#heightScaleFactor": {
+        "description": ""
+    },
+    "https://w3id.org/rec#image": {
+        "description": ""
+    },
+    "https://w3id.org/rec#installationDate": {
+        "description": ""
+    },
+    "https://w3id.org/rec#levelNumber": {
+        "description": ""
+    },
+    "https://w3id.org/rec#logo": {
+        "description": ""
+    },
+    "https://w3id.org/rec#maintenanceInterval": {
+        "description": ""
+    },
+    "https://w3id.org/rec#maxOccupancy": {
+        "description": ""
+    },
+    "https://w3id.org/rec#modelNumber": {
+        "description": ""
+    },
+    "https://w3id.org/rec#netArea": {
+        "description": ""
+    },
+    "https://w3id.org/rec#originX": {
+        "description": ""
+    },
+    "https://w3id.org/rec#originY": {
+        "description": ""
+    },
+    "https://w3id.org/rec#postalCode": {
+        "description": ""
+    },
+    "https://w3id.org/rec#region": {
+        "description": ""
+    },
+    "https://w3id.org/rec#rentableArea": {
+        "description": ""
+    },
+    "https://w3id.org/rec#seatingCapacity": {
+        "description": ""
+    },
+    "https://w3id.org/rec#serialNumber": {
+        "description": ""
+    },
+    "https://w3id.org/rec#severity": {
+        "description": ""
+    },
+    "https://w3id.org/rec#start": {
+        "description": ""
+    },
+    "https://w3id.org/rec#startLevel": {
+        "description": ""
+    },
+    "https://w3id.org/rec#status": {
+        "description": ""
+    },
+    "https://w3id.org/rec#timestamp": {
+        "description": ""
+    },
+    "https://w3id.org/rec#tripDirection": {
+        "description": ""
+    },
+    "https://w3id.org/rec#turnoverDate": {
+        "description": ""
+    },
+    "https://w3id.org/rec#weight": {
+        "description": ""
+    },
+    "https://w3id.org/rec#widthScaleFactor": {
+        "description": ""
+    },
+    "https://w3id.org/rec#xRotationalScaleFactor": {
+        "description": ""
+    },
+    "https://w3id.org/rec#yRotationalScaleFactor": {
+        "description": ""
+    },
+    "https://brickschema.org/schema/Brick#aggregationFunction": {
+        "description": "The aggregation function applied to data in the interval which produces the value"
+    },
+    "https://brickschema.org/schema/Brick#latitude": {
+        "description": ""
+    },
+    "https://brickschema.org/schema/Brick#longitude": {
+        "description": ""
+    },
+    "https://w3id.org/rec#batteryPercentage": {
+        "description": ""
+    },
+    "https://w3id.org/rec#generation": {
+        "description": ""
+    },
+    "https://w3id.org/rec#heightRUs": {
+        "description": ""
+    },
+    "https://w3id.org/rec#numberOfPorts": {
+        "description": ""
+    },
+    "https://w3id.org/rec#poeType": {
+        "description": ""
+    },
+    "https://w3id.org/rec#portSpeed": {
+        "description": ""
+    },
+    "https://w3id.org/rec#standard": {
+        "description": ""
+    },
+    "https://w3id.org/rec#wifiSignalStrength": {
+        "description": ""
+    },
+    "https://brickschema.org/schema/Brick#deprecatedInVersion": {
+        "description": "The version in which the entity was deprecated"
+    },
+    "https://brickschema.org/schema/Brick#deprecationMitigationMessage": {
+        "description": "A message describing how to mitigate or address the deprecation"
+    },
+    "https://w3id.org/rec#coordinates": {
+        "description": ""
+    },
+    "https://brickschema.org/schema/Brick#timestamp": {
+        "description": ""
+    },
+    "https://w3id.org/rec#value": {
+        "description": ""
+    }
+}

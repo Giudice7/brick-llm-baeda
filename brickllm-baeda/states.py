@@ -1,7 +1,7 @@
 import operator
-from typing import TypedDict, Annotated
+from typing import TypedDict, Annotated, List
 
-from schemas import IdentifiedEntities, IdentifiedProperties
+from schemas import IdentifiedEntities, IdentifiedProperties, IdentifiedRelationships, InputTokenDetails, OutputTokenDetails
 
 
 class WorkflowState(TypedDict, total=False):
@@ -9,26 +9,25 @@ class WorkflowState(TypedDict, total=False):
     ontology_name: str
     uri: str
 
+    input_token_details: Annotated[List[InputTokenDetails], operator.add]
+    output_token_details: Annotated[List[OutputTokenDetails], operator.add]
+
     user_instructions_entity_extractor: str
     identified_entities: IdentifiedEntities
-    input_tokens_entity_extractor: int
-    output_tokens_entity_extractor: int
 
     user_instructions_property_extractor: str
     identified_properties: IdentifiedProperties
-    input_tokens_property_extractor: int
-    output_tokens_property_extractor: int
 
     user_instructions_relationship_extractor: str
+    identified_relationships: IdentifiedRelationships
+
+    user_instructions_kg_development: str
+
     rdf_graphs: Annotated[list, operator.add]
-    input_tokens_knowledge_graph_development: int
-    output_tokens_knowledge_graph_development: int
+
     supported_relationships: dict
 
     is_valid: bool
     iteration: int
     validation_errors: Annotated[list, operator.add]
     inferred_graph: Annotated[list, operator.add]
-
-    input_tokens_knowledge_graph_refactoring: Annotated[int, operator.add]
-    output_tokens_knowledge_graph_refactoring: Annotated[int, operator.add]

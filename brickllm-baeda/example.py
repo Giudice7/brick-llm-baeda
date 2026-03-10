@@ -34,9 +34,11 @@ max_iterations = 3
 user_instructions_entity_extractor = ("When extract entities, go as much in detail as possible when finding the most "
                                       "representative entities. For example, if the user mentioned a supply air "
                                       "temperature sensor, retrieve the Supply_Air_Temperature_Sensor class. Focus also"
-                                      "on external references classes to encode the timeseries references.")
+                                      "on external references classes to encode the timeseries references. When modeling topology, prefer to extract REC entities")
 
-user_instructions_relationship_extractor = ("Implement the TimeseriesReference linking each reference to its own sensor "
+user_instructions_relationship_extractor = ("When extract topological relationships, prefer the use of REC relationships.")
+
+user_instructions_kg_development = ("Implement the TimeseriesReference linking each reference to its own sensor "
                                             "by means of https://brickschema.org/schema/Brick/ref#hasExternalReference predicate."
                                             "(example: bldg:AHU_R_SAT ref:hasExternalReference bldg:AHU_R_SAT_Ref"
                                             "bldg:AHU_R_SAT_Ref a ref:TimeseriesReference"
@@ -54,6 +56,7 @@ results = kg_builder.run(
         "user_input": user_input,
         "user_instructions_entity_extractor": user_instructions_entity_extractor,
         "user_instructions_relationship_extractor": user_instructions_relationship_extractor,
+        "user_instructions_kg_development": user_instructions_kg_development,
         "ontology_name": ontology_name,
         "uri": uri
     }
@@ -62,3 +65,5 @@ results = kg_builder.run(
 kg = kg_builder.get_final_kg()
 
 print(kg.serialize(format="ttl"))
+
+kg_builder.get_token_usage_summary()

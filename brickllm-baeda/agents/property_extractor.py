@@ -9,7 +9,7 @@ from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
 from states import WorkflowState
 from schemas import IdentifiedProperties
-from utils.artifacts import get_unique_properties
+from utils.llms import calculate_token_usage
 
 
 def extract_properties_agent(state: WorkflowState, config: RunnableConfig) -> WorkflowState:
@@ -37,7 +37,7 @@ def extract_properties_agent(state: WorkflowState, config: RunnableConfig) -> Wo
     llm = config.get("configurable", {}).get("model")
 
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    properties_path = os.path.join(base_dir, "ontologies", ontology_name, "relationships.json")
+    properties_path = os.path.join(base_dir, "ontologies", ontology_name, "properties.json")
 
     try:
         with open(properties_path, "r", encoding="utf-8") as f:
@@ -47,9 +47,9 @@ def extract_properties_agent(state: WorkflowState, config: RunnableConfig) -> Wo
 
 
     system_message = f"""
-    You are an ontology mapping agent. Your task is to identify the properties, both object properties and data properties, described in the user input that matches the ones provided by an ontology. The ontology you are working with is {ontology_name}.
+    You are an ontology mapping agent. Your task is to identify the data properties described in the user input that matches the ones provided by an ontology. The ontology you are working with is {ontology_name}.
 
-    Here is the complete dictionary of available properties, their labels, and descriptions:
+    Here is the complete dictionary of available properties and their descriptions:
     {json.dumps(available_properties, indent=2)}
 
     # GENERAL INSTRUCTIONS:
@@ -68,14 +68,9 @@ def extract_properties_agent(state: WorkflowState, config: RunnableConfig) -> Wo
     response = agent.invoke({"messages": [HumanMessage(content=user_input)]})
 
     messages = response["messages"]
-    input_tokens = 0
-    output_tokens = 0
-    for message in messages:
-        if isinstance(message, AIMessage):
-            input_tokens += message.usage_metadata["input_tokens"]
-            output_tokens += message.usage_metadata["output_tokens"]
 
     final_message = response["messages"][-1].content
+    input_tokens, output_tokens = calculate_token_usage(messages)
 
     try:
         parsed_properties = IdentifiedProperties.model_validate_json(final_message)
@@ -85,62 +80,6 @@ def extract_properties_agent(state: WorkflowState, config: RunnableConfig) -> Wo
 
     return {
         "identified_properties": parsed_properties,
-        "input_tokens_property_extractor": input_tokens,
-        "output_tokens_property_extractor": output_tokens,
+        "input_token_details": [input_tokens],
+        "output_token_details": [output_tokens],
     }
-
-
-if __name__ == "__main__":
-    from langchain_openai import ChatOpenAI
-    from dotenv import load_dotenv
-
-    load_dotenv()
-
-    description = """
-    The building, with a floor area of 450 square meters, is composed by 5 HVAC zones.
-    An Air Handling Unit feeds all the HVAC zones.
-    Each HVAC zone has a zone air temperature sensor.
-    The Air Handling Unit is composed by the following equipments: a cooling coil, a supply fan, a return fan, an outside damper and a return damper.
-    Each equipment has the following sensors:
-    - The cooling coil has a valve position sensor
-    - The outdoor air damper has a damper position sensor
-    - The return air damper has a damper position sensor
-    - The return fan has a speed setpoint and a speed status
-    - The supply fan has a speed setpoint and a speed status
-    The Air Handling Unit is equipped with the following sensors:
-    - a supply air temperature sensor
-    - a return air temperature sensor
-    - an outside air temperature sensor
-    - a mixed air temperature sensor
-    - a supply air temperature setpoint
-    - an operating mode status
-    - a supply air flow sensor
-    - a return air flow sensor
-    - and an outside air flow sensor.
-    """
-
-    llm_instance = ChatOpenAI(
-        model="gpt-5-mini",
-        temperature=0
-    )
-
-    test_state = {
-        "user_input": description,
-        "ontology_name": "Brick",
-        "user_instructions_property_extractor": ""
-    }
-
-    test_config = {
-        "configurable": {
-            "model": llm_instance
-        }
-    }
-
-    result = extract_properties_agent(test_state, test_config)
-
-    print("Identified Data Properties:")
-    for property_uri in result.get("identified_properties", []):
-        print(property_uri)
-
-    print(f"\nInput Tokens: {result.get('input_tokens_property_extractor')}")
-    print(f"Output Tokens: {result.get('output_tokens_property_extractor')}")

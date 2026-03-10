@@ -15,6 +15,7 @@ from states import WorkflowState
 from schemas import IdentifiedEntities
 from tools.hierarchy import retrieve_subclasses
 from utils.artifacts import get_initial_state
+from utils.llms import calculate_token_usage
 
 
 def extract_entities_agent(state: WorkflowState, config: RunnableConfig) -> WorkflowState:
@@ -82,14 +83,8 @@ def extract_entities_agent(state: WorkflowState, config: RunnableConfig) -> Work
     response = agent.invoke({"messages": [HumanMessage(content=f"Find the ontological entities of the following input: {user_input}")]})
 
     messages = response["messages"]
-    input_tokens = 0
-    output_tokens = 0
-    for message in messages:
-        if isinstance(message, AIMessage):
-            input_tokens += message.usage_metadata["input_tokens"]
-            output_tokens += message.usage_metadata["output_tokens"]
-
     final_message = response["messages"][-1].content
+    input_tokens, output_tokens = calculate_token_usage(messages)
 
     try:
         parsed_entities = IdentifiedEntities.model_validate_json(final_message)
@@ -99,59 +94,6 @@ def extract_entities_agent(state: WorkflowState, config: RunnableConfig) -> Work
 
     return {
         "identified_entities": parsed_entities,
-        "input_tokens_entity_extractor": input_tokens,
-        "output_tokens_entity_extractor": output_tokens,
+        "input_token_details": [input_tokens],
+        "output_token_details": [output_tokens],
     }
-
-
-if __name__ == "__main__":
-    load_dotenv()
-    description = """
-    The building is composed by 5 HVAC zones.
-    An Air Handling Unit feeds all the HVAC zones.
-    Each HVAC zone has a zone air temperature sensor.
-    The Air Handling Unit is composed by the following equipments: a cooling coil, a supply fan, a return fan, an outside damper and a return damper.
-    Each equipment has the following sensors:
-    - The cooling coil has a valve position sensor
-    - The outdoor air damper has a damper position sensor
-    - The return air damper has a damper position sensor
-    - The return fan has a speed setpoint and a speed status
-    - The supply fan has a speed setpoint and a speed status
-    The Air Handling Unit is equipped with the following sensors:
-    - a supply air temperature sensor
-    - a return air temperature sensor
-    - an outside air temperature sensor
-    - a mixed air temperature sensor
-    - a supply air temperature setpoint
-    - an operating mode status
-    - a supply air flow sensor
-    - a return air flow sensor
-    - and an outside air flow sensor.
-    """
-
-    user_instructions = """
-    Go as much as detailed as possible in returning the extracted entities. For instance, explicit return the type of air temperature sensor (e.g. Supply_Air_Temperature_Sensor, etc.)
-    """
-
-    llm_instance = ChatOpenAI(
-        model="gpt-5-mini",
-        max_tokens=10000
-    )
-
-    test_state = {
-        "user_input": description,
-        "ontology_name": "Brick",
-        "user_instructions_entity_extractor": user_instructions
-    }
-
-    test_config = {
-        "configurable": {
-            "model": llm_instance
-        }
-    }
-
-    result = extract_entities_agent(test_state, test_config)
-
-    print("Identified Entities:")
-    for entity_uri in result.get("identified_entities", []):
-        print(entity_uri)
