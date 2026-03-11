@@ -4,9 +4,9 @@ from typing import Dict, Any, Union, List
 from langgraph.graph import StateGraph, START, END
 
 from states import WorkflowState
+from utils.validation import fix_malformed_literals
 from validation import validation_node, route_after_validation
-from agents import extract_entities_agent, extract_properties_agent, extract_relationships_agent, knowledge_graph_agent, \
-    knowledge_graph_refactoring_agent
+from agents import semantic_extractor, knowledge_graph_agent,  knowledge_graph_refactoring_agent
 
 
 class BuildingKnowledgeGraphBuilder:
@@ -26,19 +26,14 @@ class BuildingKnowledgeGraphBuilder:
     def build_graph(self):
         self.workflow = StateGraph(WorkflowState)
 
-        self.workflow.add_node("entity_extractor", extract_entities_agent)
-        self.workflow.add_node("properties_extractor", extract_properties_agent)
-        self.workflow.add_node("relationships_extractor", extract_relationships_agent)
+        self.workflow.add_node("semantic_extractor", semantic_extractor)
         self.workflow.add_node("knowledge_graph_agent", knowledge_graph_agent)
         self.workflow.add_node("validation_node", validation_node)
         self.workflow.add_node("knowledge_graph_refactoring", knowledge_graph_refactoring_agent)
 
-        self.workflow.add_edge(START, "entity_extractor")
-        self.workflow.add_edge(START, "properties_extractor")
-        self.workflow.add_edge(START, "relationships_extractor")
+        self.workflow.add_edge(START, "semantic_extractor")
 
-        self.workflow.add_edge(["entity_extractor", "properties_extractor", "relationships_extractor"],
-                               "knowledge_graph_agent")
+        self.workflow.add_edge("semantic_extractor", "knowledge_graph_agent")
 
         self.workflow.add_edge("knowledge_graph_agent", "validation_node")
 
@@ -62,8 +57,19 @@ class BuildingKnowledgeGraphBuilder:
         if stream:
             events = []
             for event in self.workflow.stream(
-                    input_data, self.config, stream_mode="values"
+                    input_data, self.config, stream_mode="updates"
             ):
+                for node_name, node_output in event.items():
+                    print(f"\n{'=' * 50}")
+                    print(f"🔄 UPDATE FROM NODE: {node_name}")
+                    print(f"{'=' * 50}")
+
+                    for key, value in node_output.items():
+                        if key == "messages" and isinstance(value, list) and len(value) > 0:
+                            print(
+                                f"messages: [{len(value)} new messages] -> Last message type: {value[-1].__class__.__name__}")
+                        else:
+                            print(f"{key}: {value}\n")
                 events.append(event)
             self.result = events[-1]
             return events
@@ -71,47 +77,12 @@ class BuildingKnowledgeGraphBuilder:
             self.result = self.workflow.invoke(input_data, self.config)
             return self.result
 
-    @staticmethod
-    def fix_malformed_literals(g: rdflib.Graph) -> rdflib.Graph:
-        triples_to_remove = []
-        triples_to_add = []
-
-        for s, p, o in g:
-            if isinstance(o, rdflib.Literal):
-                val_str = str(o)
-
-                if "^^" in val_str:
-                    parts = val_str.rsplit("^^", 1)
-                    raw_val = parts[0].strip().strip('"').replace('\\"', '')
-                    raw_dt = parts[1].strip('<>')
-
-                    if raw_dt.startswith("http"):
-                        triples_to_remove.append((s, p, o))
-                        triples_to_add.append((s, p, rdflib.Literal(raw_val, datatype=rdflib.URIRef(raw_dt))))
-
-                elif "@" in val_str and val_str.rfind("@") > 0:
-                    parts = val_str.rsplit("@", 1)
-                    raw_val = parts[0].strip().strip('"').replace('\\"', '')
-                    lang_tag = parts[1].strip()
-
-                    if lang_tag.isalpha() and len(lang_tag) <= 4:
-                        triples_to_remove.append((s, p, o))
-                        triples_to_add.append((s, p, rdflib.Literal(raw_val, lang=lang_tag)))
-
-        for triple in triples_to_remove:
-            g.remove(triple)
-
-        for triple in triples_to_add:
-            g.add(triple)
-
-        return g
-
     def get_final_kg(self) -> rdflib.Graph:
         if self.result is None:
             raise ValueError("No result available. Please run the workflow first.")
 
         raw_graph = self.result["rdf_graphs"][-1]
-        cleaned_graph = self.fix_malformed_literals(raw_graph)
+        cleaned_graph = fix_malformed_literals(raw_graph)
 
         return cleaned_graph
 

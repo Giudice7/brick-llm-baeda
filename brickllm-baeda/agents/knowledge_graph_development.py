@@ -11,6 +11,7 @@ from schemas import ExtractedTriples, IdentifiedEntities, IdentifiedProperties, 
 from states import WorkflowState
 from ontologies import onto_retriever_mapping
 from utils.llms import calculate_token_usage
+from utils.validation import fix_malformed_literals
 
 
 def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> WorkflowState:
@@ -130,7 +131,7 @@ def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> Workf
     logger.debug(f"RDF graph generated:\n{g.serialize(format='turtle')}")
 
     return {
-        "rdf_graphs": [g],
+        "rdf_graphs": [fix_malformed_literals(g)],
         "input_token_details": [input_tokens],
         "output_token_details": [output_tokens],
         "supported_relationships": supported_relationships

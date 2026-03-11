@@ -1,7 +1,7 @@
 from typing import Any, Tuple, List
 
 from schemas import InputTokenDetails, OutputTokenDetails
-from langchain_core.messages import AIMessage
+from langchain_core.messages import AIMessage, InputTokenDetails
 
 
 def calculate_token_usage(messages: List[Any]) -> Tuple[InputTokenDetails, OutputTokenDetails]:

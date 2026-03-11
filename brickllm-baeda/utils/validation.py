@@ -251,3 +251,36 @@ def parse_shacl_results(results_graph: rdflib.Graph) -> dict:
 
     return errors_by_node
 
+def fix_malformed_literals(g: rdflib.Graph) -> rdflib.Graph:
+    triples_to_remove = []
+    triples_to_add = []
+
+    for s, p, o in g:
+        if isinstance(o, rdflib.Literal):
+            val_str = str(o)
+
+            if "^^" in val_str:
+                parts = val_str.rsplit("^^", 1)
+                raw_val = parts[0].strip().strip('"').replace('\\"', '')
+                raw_dt = parts[1].strip('<>')
+
+                if raw_dt.startswith("http"):
+                    triples_to_remove.append((s, p, o))
+                    triples_to_add.append((s, p, rdflib.Literal(raw_val, datatype=rdflib.URIRef(raw_dt))))
+
+            elif "@" in val_str and val_str.rfind("@") > 0:
+                parts = val_str.rsplit("@", 1)
+                raw_val = parts[0].strip().strip('"').replace('\\"', '')
+                lang_tag = parts[1].strip()
+
+                if lang_tag.isalpha() and len(lang_tag) <= 4:
+                    triples_to_remove.append((s, p, o))
+                    triples_to_add.append((s, p, rdflib.Literal(raw_val, lang=lang_tag)))
+
+    for triple in triples_to_remove:
+        g.remove(triple)
+
+    for triple in triples_to_add:
+        g.add(triple)
+
+    return g

@@ -11,6 +11,7 @@ from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from states import WorkflowState
 from schemas import IdentifiedProperties, IdentifiedEntities, IdentifiedRelationships
 from utils.llms import calculate_token_usage
+from utils.validation import fix_malformed_literals
 from tools.graph_editor import add_triple, delete_triple
 from ontologies import onto_retriever_mapping
 
@@ -113,7 +114,7 @@ def knowledge_graph_refactoring_agent(state: WorkflowState, config: RunnableConf
     logger.debug(f"Knowledge Graph Refactoring Agent response: {final_message}")
 
     return {
-        "rdf_graphs": [graph],
+        "rdf_graphs": [fix_malformed_literals(graph)],
         "input_token_details": [input_tokens],
         "output_token_details": [output_tokens]
     }

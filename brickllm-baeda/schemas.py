@@ -4,20 +4,21 @@ from typing_extensions import TypedDict
 
 
 class IdentifiedEntities(BaseModel):
-    selected_classes: List[str] = Field(
-        description="The final, most specific URIs chosen to represent the objects identified in the user prompt."
-    )
+    selected_classes: List[str] = Field(description="The final, most specific URIs chosen to represent the objects identified in the user prompt.")
 
 
 class IdentifiedProperties(BaseModel):
-    selected_properties: List[str] = Field(
-        description="The final list of URIs representing the data properties identified in the user prompt. Returns an empty list if none are found."
-    )
+    selected_properties: List[str] = Field(description="The final list of URIs representing the data properties identified in the user prompt. Returns an empty list if none are found.")
+
 
 class IdentifiedRelationships(BaseModel):
-    selected_relationships: List[str] = Field(
-        description="The final list of URIs representing the object properties (relationships) identified in the user prompt. Returns an empty list if none are found."
-    )
+    selected_relationships: List[str] = Field(description="The final list of URIs representing the object properties (relationships) identified in the user prompt. Returns an empty list if none are found.")
+
+
+class IdentifiedOntologyConcepts(BaseModel):
+    selected_classes: List[str] = Field(description="The final, most specific URIs chosen to represent the objects identified in the user prompt.")
+    selected_object_properties: List[str] = Field(description="The final list of URIs representing the data properties identified in the user prompt. Returns an empty list if none are found.")
+    selected_data_properties: List[str] = Field(description="The final list of URIs representing the object properties (relationships) identified in the user prompt. Returns an empty list if none are found.")
 
 
 class Triple(BaseModel):

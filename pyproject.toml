@@ -47,6 +47,7 @@ langchain-openai = "^1.1.10"
 setuptools = "^82.0.0"
 pyshacl = "^0.31.0"
 loguru = "^0.7.3"
+langgraph-supervisor = "^0.0.31"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4"

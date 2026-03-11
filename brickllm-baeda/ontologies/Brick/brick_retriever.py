@@ -220,6 +220,17 @@ class BrickRetriever(OntoRetriever):
 
     def get_supported_relationships(self, entities: List[str], relationships: List[str], properties: List[str]) -> Dict[
         str, Dict[str, List[Any]]]:
+        """
+        Obtains the supported relationships and properties for the given entities.
+        Args:
+            entities (list): A list of entity URIs (strings) for which to retrieve supported relationships and properties.
+            relationships: A list of object property URIs (strings) that were extracted by the agent and should be validated against the ontology.
+            properties: A list of datatype property URIs (strings) that were extracted by the agent and should be validated against the ontology.
+
+        Returns:
+            dict: A dictionary where each key is a subject entity URI (string) from the input entities list, and the value is another dictionary. This inner dictionary maps valid relationship/property URIs (strings) to a list of valid target URIs (strings) from the input entities list or literal values, based on the constraints defined in the ontology.
+        """
+
         result = {}
         all_requested_properties = set(relationships + properties)
 

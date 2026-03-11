@@ -42,7 +42,7 @@ user_instructions_kg_development = ("Implement the TimeseriesReference linking e
                                             "by means of https://brickschema.org/schema/Brick/ref#hasExternalReference predicate."
                                             "(example: bldg:AHU_R_SAT ref:hasExternalReference bldg:AHU_R_SAT_Ref"
                                             "bldg:AHU_R_SAT_Ref a ref:TimeseriesReference"
-                                            "bldg:AHU_R_SAT_Ref ref:hasTimeseriesId \"AHU_R_SAT\"^^xsd:string).")
+                                            "bldg:AHU_R_SAT_Ref ref:hasTimeseriesId 'AHU_R_SAT'^^xsd:string).")
 
 llm_instance = ChatOpenAI(
     model="gpt-5-mini",
@@ -66,4 +66,4 @@ kg = kg_builder.get_final_kg()
 
 print(kg.serialize(format="ttl"))
 
-kg_builder.get_token_usage_summary()
+print(kg_builder.get_token_usage_summary())

@@ -1,5 +1,6 @@
 from .entity_extractor import extract_entities_agent
-from .property_extractor import extract_properties_agent
-from.relationship_extractor import extract_relationships_agent
+from .property_extractor import extract_data_properties_agent
+from.relationship_extractor import extract_object_properties_agent
 from .knowledge_graph_refactoring import knowledge_graph_refactoring_agent
 from .knowledge_graph_development import knowledge_graph_agent
+from .semantic_extractor import semantic_extractor

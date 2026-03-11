@@ -1,39 +1,31 @@
 import os
 import json
-from typing import Dict
-from dotenv import load_dotenv
 
 from langchain.agents import create_agent
-from langchain_core.runnables import RunnableConfig
+from langchain_core.language_models import BaseChatModel
 from langchain_core.tools import StructuredTool
 from langchain_core.tools import create_schema_from_function
-from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
-from langchain_openai import ChatOpenAI
+from langchain_core.messages import SystemMessage
+from langgraph.graph.state import CompiledStateGraph
 from loguru import logger
 
-from states import WorkflowState
 from schemas import IdentifiedEntities
 from tools.hierarchy import retrieve_subclasses
 from utils.artifacts import get_initial_state
-from utils.llms import calculate_token_usage
 
 
-def extract_entities_agent(state: WorkflowState, config: RunnableConfig) -> WorkflowState:
+def extract_entities_agent(llm: BaseChatModel, ontology_name: str, user_instructions: str = "") -> CompiledStateGraph:
     """
     Orchestrates the entity extraction using the provided state and configuration.
 
     Args:
-        state (Dict[str, Any]): The state dictionary containing the user input and ontology details.
-        config (Dict[str, Any]): The config dictionary containing the model.
+        llm: A language model instance to be used by the agent for processing.
+        ontology_name: The name of the ontology to be used for entity extraction (e.g., "Brick", "saref", etc.).
+        user_instructions: Optional additional instructions to guide the entity extraction process.
 
     Returns:
-        Dict[str, Any]: A dictionary containing the final parsed entities.
+        CompiledStateGraph: An agent configured to extract entities based on the specified ontology and user instructions.
     """
-
-    user_input = state.get("user_input", "")
-    ontology_name = state.get("ontology_name", "Brick")
-    user_instructions = state.get("user_instructions_entity_extractor", "")
-    llm = config.get("configurable", {}).get("model")
 
     if len(user_instructions) > 0:
         user_instructions = f"# USER INSTRUCTIONS:\n{user_instructions}\n\n"
@@ -48,11 +40,21 @@ def extract_entities_agent(state: WorkflowState, config: RunnableConfig) -> Work
     with open(hierarchy_path, "r") as f:
         hierarchy = json.load(f)
 
+    ontology_doc_path = os.path.join(base_dir, "ontologies", ontology_name, "ontology.md")
+    try:
+        with open(ontology_doc_path, "r", encoding="utf-8") as f:
+            ontology_description = f.read()
+            ontology_description_text = f"{ontology_description}"
+    except FileNotFoundError:
+        ontology_description_text = ""
+
     initial_hierarchy_state = get_initial_state(ontology_name, hierarchy, max_depth=2)
 
     system_message = f"""
     You are an ontology mapping agent. Your task is to identify the most specific URIs for the entities described in the user input. The ontology you are working with is {ontology_name}.
-
+    
+    {ontology_description_text}
+    
     You have this initial hierarchy starting from the main entities:
     {json.dumps(initial_hierarchy_state)}
     
@@ -62,7 +64,7 @@ def extract_entities_agent(state: WorkflowState, config: RunnableConfig) -> Work
     
     {user_instructions}
     
-    Once you have finished exploring and have your final list, return the result as a structured output in the format specified by the IdentifiedEntities schema, with the key "selected_classes" containing a list of the final URIs you have identified as the best matches for the entities in the user input.
+    Once you have finished exploring and have your final list, return the result as a structured output matching the IdentifiedEntities schema.
     """
 
     node_expansion_tool = StructuredTool(
@@ -74,26 +76,29 @@ def extract_entities_agent(state: WorkflowState, config: RunnableConfig) -> Work
     )
 
     agent = create_agent(
+        name="entity_expert",
         model=llm,
         tools=[node_expansion_tool],
         system_prompt=SystemMessage(content=system_message),
         response_format=IdentifiedEntities
     )
 
-    response = agent.invoke({"messages": [HumanMessage(content=f"Find the ontological entities of the following input: {user_input}")]})
+    return agent
 
-    messages = response["messages"]
-    final_message = response["messages"][-1].content
-    input_tokens, output_tokens = calculate_token_usage(messages)
-
-    try:
-        parsed_entities = IdentifiedEntities.model_validate_json(final_message)
-        logger.debug(f"Parsed entities: {parsed_entities.selected_classes}")
-    except Exception:
-        raise ValueError(f"Failed to parse the agent's response. Response content: {final_message}")
-
-    return {
-        "identified_entities": parsed_entities,
-        "input_token_details": [input_tokens],
-        "output_token_details": [output_tokens],
-    }
+    # response = agent.invoke({"messages": [HumanMessage(content=f"Find the ontological entities of the following input: {user_input}")]})
+    #
+    # messages = response["messages"]
+    # final_message = response["messages"][-1].content
+    # input_tokens, output_tokens = calculate_token_usage(messages)
+    #
+    # try:
+    #     parsed_entities = IdentifiedEntities.model_validate_json(final_message)
+    #     logger.debug(f"Parsed entities: {parsed_entities.selected_classes}")
+    # except Exception:
+    #     raise ValueError(f"Failed to parse the agent's response. Response content: {final_message}")
+    #
+    # return {
+    #     "identified_entities": parsed_entities,
+    #     "input_token_details": [input_tokens],
+    #     "output_token_details": [output_tokens],
+    # }
