@@ -3,7 +3,7 @@ import yaml
 import rdflib
 from rdflib.namespace import RDF, RDFS, OWL, Namespace
 from typing import List, Dict, Any, Set
-from ontologies.onto_retriever import OntoRetriever
+from ...ontologies.onto_retriever import OntoRetriever
 
 SH = Namespace("http://www.w3.org/ns/shacl#")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
@@ -101,6 +101,10 @@ class BrickRetriever(OntoRetriever):
             if any(ignored in prop_str for ignored in IGNORED_URIS):
                 continue
 
+            deprecated = self.g.value(data_prop, OWL.deprecated)
+            if deprecated and str(deprecated).lower() == "true":
+                continue
+
             desc_parts = []
             definition = self.g.value(data_prop, SKOS.definition)
             comment = self.g.value(data_prop, RDFS.comment)
@@ -133,6 +137,10 @@ class BrickRetriever(OntoRetriever):
 
             prop_str = str(obj_prop)
             if any(ignored in prop_str for ignored in IGNORED_URIS):
+                continue
+
+            deprecated = self.g.value(obj_prop, OWL.deprecated)
+            if deprecated and str(deprecated).lower() == "true":
                 continue
 
             desc_parts = []

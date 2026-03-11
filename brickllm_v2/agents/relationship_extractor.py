@@ -7,25 +7,25 @@ from langchain_core.messages import SystemMessage
 from langgraph.graph.state import CompiledStateGraph
 from loguru import logger
 
-from schemas import IdentifiedProperties
+from ..schemas import IdentifiedRelationships
 
 
-def extract_data_properties_agent(llm: BaseChatModel, ontology_name: str, user_instructions: str = "") -> CompiledStateGraph:
+def extract_object_properties_agent(llm: BaseChatModel, ontology_name: str, user_instructions: str = "") -> CompiledStateGraph:
     if len(user_instructions) > 0:
         user_instructions = f"# USER INSTRUCTIONS:\n{user_instructions}\n\n"
     else:
         user_instructions = ""
 
-    logger.info(f"📏 Extracting {ontology_name} data properties from the user prompt")
+    logger.info(f"🔗 Extracting {ontology_name} object properties from the user prompt")
 
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    properties_path = os.path.join(base_dir, "ontologies", ontology_name, "properties.json")
+    relationships_path = os.path.join(base_dir, "ontologies", ontology_name, "relationships.json")
 
     try:
-        with open(properties_path, "r", encoding="utf-8") as f:
-            available_properties = json.load(f)
+        with open(relationships_path, "r", encoding="utf-8") as f:
+            available_relationships = json.load(f)
     except FileNotFoundError:
-        available_properties = {}
+        available_relationships = {}
 
     ontology_doc_path = os.path.join(base_dir, "ontologies", ontology_name, "ontology.md")
     try:
@@ -36,26 +36,26 @@ def extract_data_properties_agent(llm: BaseChatModel, ontology_name: str, user_i
         ontology_description_text = ""
 
     system_message = f"""
-    You are an ontology mapping agent. Your task is to identify the data properties described in the user input that matches the ones provided by an ontology. The ontology you are working with is {ontology_name}.
+    You are an ontology mapping agent. Your task is to identify the object properties (relationships) described in the user input that matches the ones provided by an ontology. The ontology you are working with is {ontology_name}.
 
     {ontology_description_text}
 
-    Here is the complete dictionary of available properties and their descriptions:
-    {json.dumps(available_properties, indent=2)}
+    Here is the complete dictionary of available relationships and their descriptions:
+    {json.dumps(available_relationships, indent=2)}
 
     # GENERAL INSTRUCTIONS:
-    Analyze the user's text carefully. If the user mentions or implies any of these properties, select the corresponding URI.
+    Analyze the user's text carefully. If the user mentions or implies any of these relationships, select the corresponding URI.
     {user_instructions}
 
-    Return the result as a structured output matching the IdentifiedProperties schema. 
+    Return the result as a structured output matching the IdentifiedRelationships schema.
     """
 
     agent = create_agent(
-        name="data_property_expert",
+        name=f"object_property_expert",
         model=llm,
         tools=[],
         system_prompt=SystemMessage(content=system_message),
-        response_format=IdentifiedProperties
+        response_format=IdentifiedRelationships
     )
 
     return agent
@@ -68,13 +68,13 @@ def extract_data_properties_agent(llm: BaseChatModel, ontology_name: str, user_i
     # input_tokens, output_tokens = calculate_token_usage(messages)
     #
     # try:
-    #     parsed_properties = IdentifiedProperties.model_validate_json(final_message)
-    #     logger.debug(f"Parsed properties: {parsed_properties.selected_properties}")
+    #     parsed_relationships = IdentifiedRelationships.model_validate_json(final_message)
+    #     logger.debug(f"Parsed relationships: {parsed_relationships.selected_relationships}")
     # except Exception:
     #     raise ValueError(f"Failed to parse the agent's response. Response content: {final_message}")
     #
     # return {
-    #     "identified_properties": parsed_properties,
+    #     "identified_relationships": parsed_relationships,
     #     "input_token_details": [input_tokens],
     #     "output_token_details": [output_tokens],
     # }

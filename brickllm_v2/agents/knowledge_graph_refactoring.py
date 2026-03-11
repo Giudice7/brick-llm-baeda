@@ -8,12 +8,12 @@ from langchain_core.runnables import RunnableConfig
 from langchain_core.tools import StructuredTool
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
-from states import WorkflowState
-from schemas import IdentifiedProperties, IdentifiedEntities, IdentifiedRelationships
-from utils.llms import calculate_token_usage
-from utils.validation import fix_malformed_literals
-from tools.graph_editor import add_triple, delete_triple
-from ontologies import onto_retriever_mapping
+from ..states import WorkflowState
+from ..schemas import IdentifiedProperties, IdentifiedEntities, IdentifiedRelationships
+from ..utils.llms import calculate_token_usage
+from ..utils.validation import fix_malformed_literals
+from ..tools.graph_editor import add_triple, delete_triple
+from ..ontologies import onto_retriever_mapping
 
 
 def knowledge_graph_refactoring_agent(state: WorkflowState, config: RunnableConfig) -> WorkflowState:

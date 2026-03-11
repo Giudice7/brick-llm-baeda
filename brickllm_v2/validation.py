@@ -2,8 +2,8 @@ from langchain_core.runnables import RunnableConfig
 from langgraph.graph import END
 from loguru import logger
 
-from utils.validation import validate_graph, parse_shacl_results
-from states import WorkflowState
+from .utils.validation import validate_graph, parse_shacl_results
+from .states import WorkflowState
 
 
 

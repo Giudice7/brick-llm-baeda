@@ -1,6 +1,6 @@
 from typing import List, Dict, Any
 
-from ontologies.utils import get_root_entities
+from ..ontologies.utils import get_root_entities
 
 
 def extract_hierarchy_depth(hierarchy: dict, target_uris: list, max_depth: int, current_depth: int = 1) -> dict:

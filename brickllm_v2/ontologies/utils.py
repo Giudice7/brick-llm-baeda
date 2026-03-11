@@ -34,7 +34,8 @@ def get_root_entities(ontology_name: str):
     Returns:
         list: A list of strings representing the URIs of the root entities.
     """
-    ontology_path = os.path.join("ontologies", ontology_name, "ontology.ttl")
+    current_file_path = os.path.abspath(__file__)
+    ontology_path = os.path.join(os.path.dirname(current_file_path), ontology_name, "ontology.ttl")
     graph = rdflib.Graph().parse(ontology_path, format="turtle")
     excluded_uris = load_exclusion_config(ontology_name)
 

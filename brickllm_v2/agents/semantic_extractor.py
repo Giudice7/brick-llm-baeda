@@ -9,13 +9,13 @@ from langchain_core.runnables import RunnableConfig
 from langgraph_supervisor import create_supervisor
 from loguru import logger
 
-from states import WorkflowState
-from schemas import IdentifiedOntologyConcepts
-from utils.llms import calculate_token_usage
-from ontologies import onto_retriever_mapping
-from agents.entity_extractor import extract_entities_agent
-from agents.property_extractor import extract_data_properties_agent
-from agents.relationship_extractor import extract_object_properties_agent
+from ..states import WorkflowState
+from ..schemas import IdentifiedOntologyConcepts
+from ..utils.llms import calculate_token_usage
+from ..ontologies import onto_retriever_mapping
+from ..agents.entity_extractor import extract_entities_agent
+from ..agents.property_extractor import extract_data_properties_agent
+from ..agents.relationship_extractor import extract_object_properties_agent
 
 
 def semantic_extractor(state: WorkflowState, config: RunnableConfig) -> Dict[str, Any]:

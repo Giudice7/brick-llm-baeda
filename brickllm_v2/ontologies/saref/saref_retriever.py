@@ -2,7 +2,7 @@ import rdflib
 from rdflib.namespace import RDF, RDFS, OWL
 from typing import List, Dict, Any, Set
 
-from ontologies.onto_retriever import OntoRetriever
+from ...ontologies.onto_retriever import OntoRetriever
 
 SKOS = rdflib.Namespace("http://www.w3.org/2004/02/skos/core#")
 

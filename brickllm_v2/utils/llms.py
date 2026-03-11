@@ -1,6 +1,6 @@
 from typing import Any, Tuple, List
 
-from schemas import InputTokenDetails, OutputTokenDetails
+from ..schemas import InputTokenDetails, OutputTokenDetails
 from langchain_core.messages import AIMessage, InputTokenDetails
 
 

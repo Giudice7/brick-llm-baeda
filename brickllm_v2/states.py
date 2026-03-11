@@ -1,7 +1,7 @@
 import operator
 from typing import TypedDict, Annotated, List
 
-from schemas import IdentifiedEntities, IdentifiedProperties, IdentifiedRelationships, InputTokenDetails, OutputTokenDetails
+from .schemas import IdentifiedEntities, IdentifiedProperties, IdentifiedRelationships, InputTokenDetails, OutputTokenDetails
 
 
 class WorkflowState(TypedDict, total=False):

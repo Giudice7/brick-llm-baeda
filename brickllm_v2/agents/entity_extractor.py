@@ -9,9 +9,9 @@ from langchain_core.messages import SystemMessage
 from langgraph.graph.state import CompiledStateGraph
 from loguru import logger
 
-from schemas import IdentifiedEntities
-from tools.hierarchy import retrieve_subclasses
-from utils.artifacts import get_initial_state
+from ..schemas import IdentifiedEntities
+from ..tools.hierarchy import retrieve_subclasses
+from ..utils.artifacts import get_initial_state
 
 
 def extract_entities_agent(llm: BaseChatModel, ontology_name: str, user_instructions: str = "") -> CompiledStateGraph:

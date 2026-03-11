@@ -1,7 +1,7 @@
 import os
 import json
 from typing import Dict, Any, List
-from utils.artifacts import extract_hierarchy_depth
+from ..utils.artifacts import extract_hierarchy_depth
 
 
 def retrieve_subclasses(uris: List[str], ontology_name: str) -> Dict[str, Any]:

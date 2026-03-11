@@ -3,10 +3,10 @@ from typing import Dict, Any, Union, List
 
 from langgraph.graph import StateGraph, START, END
 
-from states import WorkflowState
-from utils.validation import fix_malformed_literals
-from validation import validation_node, route_after_validation
-from agents import semantic_extractor, knowledge_graph_agent,  knowledge_graph_refactoring_agent
+from .states import WorkflowState
+from .utils.validation import fix_malformed_literals
+from .validation import validation_node, route_after_validation
+from .agents import semantic_extractor, knowledge_graph_agent,  knowledge_graph_refactoring_agent
 
 
 class BuildingKnowledgeGraphBuilder:

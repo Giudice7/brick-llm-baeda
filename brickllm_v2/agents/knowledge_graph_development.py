@@ -7,11 +7,11 @@ from langchain.agents import create_agent
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langchain_core.runnables import RunnableConfig
 
-from schemas import ExtractedTriples, IdentifiedEntities, IdentifiedProperties, IdentifiedRelationships
-from states import WorkflowState
-from ontologies import onto_retriever_mapping
-from utils.llms import calculate_token_usage
-from utils.validation import fix_malformed_literals
+from ..schemas import ExtractedTriples, IdentifiedEntities, IdentifiedProperties, IdentifiedRelationships
+from ..states import WorkflowState
+from ..ontologies import onto_retriever_mapping
+from ..utils.llms import calculate_token_usage
+from ..utils.validation import fix_malformed_literals
 
 
 def knowledge_graph_agent(state: WorkflowState, config: RunnableConfig) -> WorkflowState:
