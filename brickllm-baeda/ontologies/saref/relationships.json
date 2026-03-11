@@ -1,0 +1,212 @@
+{
+    "https://saref.etsi.org/core/hasApplicableTime": {
+        "description": "Links an entity (e.g., a profile) to an instant or interval or other compound temporal entity expressed using OWL Time, which bounds temporally the applicable context of that entity."
+    },
+    "https://saref.etsi.org/core/hasInput": {
+        "description": "Links a command, operation, or procedure execution, to its inputs."
+    },
+    "https://saref.etsi.org/core/hasOptionalCommand": {
+        "description": "Links a function and one of its optional commands"
+    },
+    "https://saref.etsi.org/core/hasOutput": {
+        "description": "Links a command or operation to its outputs."
+    },
+    "https://saref.etsi.org/core/hasPhenomenonTime": {
+        "description": "Links a procedure execution to the time that the result applies. It may be an interval or an instant, or some other compound temporal entity expressed using OWL Time."
+    },
+    "https://saref.etsi.org/core/hasResult": {
+        "description": "Links a procedure execution (e.g., an observation) to its result (e.g., a property value)."
+    },
+    "https://saref.etsi.org/core/profileHasPrice": {
+        "description": "Links a profile to the money earned (negative values) or paid (positive values) for the use (production or consumption) of the commodity by the device"
+    },
+    "https://saref.etsi.org/core/whenPropertyValue": {
+        "description": "Links a profile to a property value that contributes to restricting its applicable context."
+    },
+    "https://saref.etsi.org/core/whenState": {
+        "description": "Links a profile to a state that contributes to restricting its applicable context."
+    },
+    "https://saref.etsi.org/saref4bldg/nominalSupplyVoltageMax": {
+        "description": "The maximum and minimum allowed voltage of the supply e.g. boundaries of 380V/440V may be applied for a nominal voltage of 400V."
+    },
+    "https://saref.etsi.org/saref4bldg/shortCircuitVoltage": {
+        "description": "A complex number that specifies the real and imaginary parts of the short-circuit voltage at rated current of a transformer given in %."
+    },
+    "https://saref.etsi.org/core/accomplishes": {
+        "description": "Links a certain entity (e.g., a device) to the task it accomplishes."
+    },
+    "https://saref.etsi.org/core/consumes": {
+        "description": "Links a feature kind, feature of interest, or device, to the commodity it consumes"
+    },
+    "https://saref.etsi.org/core/hasDeviceKind": {
+        "description": "Links a device to its kind, a device kind. Kinds of devices describe models of devices, with common properties and common states having the same value, targeting the same properties and states, common functions, and common services."
+    },
+    "https://saref.etsi.org/core/hasOperation": {
+        "description": "Links a service to one of its operations."
+    },
+    "https://saref.etsi.org/core/hasProfile": {
+        "description": "Links a device to its profile. Its inverse is saref:isProfileOf. The device should be linked to a certain commodity using OP saref:consumes, saref:produces, or saref:stores, and optionally to some property or state using OP saref:targets or its sub-properties."
+    },
+    "https://saref.etsi.org/core/hasPropertyValue": {
+        "description": "Links a feature kind, a feature of interest, or a property of interest, to a property value."
+    },
+    "https://saref.etsi.org/core/hasStateValue": {
+        "description": "Links a feature kind, a feature of interest, or a state of interest, to a state value."
+    },
+    "https://saref.etsi.org/core/isAccomplishedBy": {
+        "description": "A relationship identifying an entity (e.g., a device) that can accomplish a task."
+    },
+    "https://saref.etsi.org/core/isCommandOf": {
+        "description": "Links a command and a function or function of interest that supports it."
+    },
+    "https://saref.etsi.org/core/isConsumedBy": {
+        "description": "Links a commodity to the feature kind, feature of interest, or device, that consumes it"
+    },
+    "https://saref.etsi.org/core/isControlledBy": {
+        "description": "Links a feature, property, or state, to the device, function, command, or procedure execution, that controls it."
+    },
+    "https://saref.etsi.org/core/isFunctionOf": {
+        "description": "Links a function to the feature kind or device it is a function of."
+    },
+    "https://saref.etsi.org/core/isMeasuredIn": {
+        "description": "A relationship identifying the unit of measure used for a certain entity."
+    },
+    "https://saref.etsi.org/core/isObservedBy": {
+        "description": "Links a feature, property, or state, to the device, function, command, or procedure execution, that observes it."
+    },
+    "https://saref.etsi.org/core/isProducedBy": {
+        "description": "Links a commodity to the feature kind, feature of interest, or device, that produces it"
+    },
+    "https://saref.etsi.org/core/isProfileOf": {
+        "description": "Links a profile to the device it describes. The device should be linked to a certain commodity using OP saref:consumes, saref:produces, or saref:stores, and optionally to some property or state using OP saref:targets or its sub-properties."
+    },
+    "https://saref.etsi.org/core/isPropertyOf": {
+        "description": "Links a property to the feature kind or feature of interest it is a property of."
+    },
+    "https://saref.etsi.org/core/isStateOf": {
+        "description": "Links a state to the feature kind or feature of interest it is a state of."
+    },
+    "https://saref.etsi.org/core/isStoredBy": {
+        "description": "Links a commodity to the feature kind, feature of interest, or device, that stores it"
+    },
+    "https://saref.etsi.org/core/madeExecution": {
+        "description": "Links an entity (e.g., device) to the procedure execution it made."
+    },
+    "https://saref.etsi.org/core/offers": {
+        "description": "Links a device to a service it exposes to a network."
+    },
+    "https://saref.etsi.org/core/produces": {
+        "description": "Links a feature kind, feature of interest, or device, to the commodity it produces"
+    },
+    "https://saref.etsi.org/core/stores": {
+        "description": "Links a feature kind, feature of interest, or device, to the commodity it stores"
+    },
+    "https://saref.etsi.org/core/hasCommandOfInterest": {
+        "description": "Links a function of interest to one of its commands of interest."
+    },
+    "https://saref.etsi.org/core/hasFunctionKind": {
+        "description": "links a function of interest to its kind, a function"
+    },
+    "https://saref.etsi.org/core/hasFunctionOfInterest": {
+        "description": "Links a device to one of its functions of interest."
+    },
+    "https://saref.etsi.org/core/hasMandatoryCommand": {
+        "description": "Links a function and one of its mandatory commands"
+    },
+    "https://saref.etsi.org/core/hasPropertyOfInterest": {
+        "description": "Links a feature of interest to one of its properties of interest."
+    },
+    "https://saref.etsi.org/core/hasStateOfInterest": {
+        "description": "Links a feature of interest to one of its states of interest."
+    },
+    "https://saref.etsi.org/core/isCommandOfInterestOf": {
+        "description": "Links a command of interest to the function of interest it is a command of."
+    },
+    "https://saref.etsi.org/core/isFunctionOfInterestOf": {
+        "description": "Links a function of interest to the device it is a function of."
+    },
+    "https://saref.etsi.org/core/isOfferedBy": {
+        "description": "Links a service to the device that exposes it to a network"
+    },
+    "https://saref.etsi.org/core/isOperationOf": {
+        "description": "Links an operation to the service it belongs to."
+    },
+    "https://saref.etsi.org/core/isPropertyOfInterestOf": {
+        "description": "Links a property of interest to the feature of interest it is a property of."
+    },
+    "https://saref.etsi.org/core/isStateOfInterestOf": {
+        "description": "Links a state of interest to the feature of interest it is a state of."
+    },
+    "https://saref.etsi.org/core/isTargetOf": {
+        "description": "Links a feature, property, or state, to the device, function, command, or procedure execution, that targets it."
+    },
+    "https://saref.etsi.org/core/isValueOfProperty": {
+        "description": "Links a property value to the property or property of interest it is a value of."
+    },
+    "https://saref.etsi.org/core/isValueOfState": {
+        "description": "Links a state value to the state or state of interest it is a value of."
+    },
+    "https://saref.etsi.org/saref4bldg/isContainedIn": {
+        "description": "A relation between a physical object and the physical space in which it is contained."
+    },
+    "https://saref.etsi.org/saref4bldg/isSpaceOf": {
+        "description": "Relation between a building space and the building or building space it belongs to."
+    },
+    "https://saref.etsi.org/core/controls": {
+        "description": "Links a device, function, command, or procedure execution, to the feature, property, or state, it controls."
+    },
+    "https://saref.etsi.org/core/hasCommand": {
+        "description": "Links a function or function of interest and the command it supports."
+    },
+    "https://saref.etsi.org/core/hasCommandKind": {
+        "description": "links a command of interest to its kind, a command."
+    },
+    "https://saref.etsi.org/core/hasFunction": {
+        "description": "Links a feature kind or a device to one of its functions."
+    },
+    "https://saref.etsi.org/core/hasState": {
+        "description": "Links a feature kind or a feature of interest to one of its states."
+    },
+    "https://saref.etsi.org/core/madeBy": {
+        "description": "Links a procedure execution to the entity (e.g., device) that made it."
+    },
+    "https://saref.etsi.org/core/targets": {
+        "description": "Links a device, function, command, or procedure execution, to the feature, property, or state, it targets."
+    },
+    "https://saref.etsi.org/saref4bldg/contains": {
+        "description": "A relation between a physical object and another physical object it contains."
+    },
+    "https://saref.etsi.org/saref4bldg/hasSpace": {
+        "description": "Relation between a building or a building space and the spaces it can be divided into."
+    },
+    "https://saref.etsi.org/core/hasPropertyKind": {
+        "description": "links a property of interest to its kind, a property."
+    },
+    "https://saref.etsi.org/core/hasStateKind": {
+        "description": "links a state of interest to its kind, a state"
+    },
+    "https://saref.etsi.org/core/isExecutionOf": {
+        "description": "Links a command execution to the command or command of interest that was executed. Also liks an operation execution to the operation that was executed"
+    },
+    "https://saref.etsi.org/core/observes": {
+        "description": "Links a device, function, command, or procedure execution, to the feature, property, or state, it observes."
+    },
+    "https://saref.etsi.org/core/represents": {
+        "description": "Links a service to some function or function of interest it exposes to the network. Also links an operation to some command or command of interest it exposes to the network."
+    },
+    "https://saref.etsi.org/core/hasFeatureKind": {
+        "description": "links a feature of interest to its kind, a feature kind"
+    },
+    "http://www.w3.org/2004/02/skos/core#narrower": {
+        "description": ""
+    },
+    "https://saref.etsi.org/core/consistsOf": {
+        "description": "A relationship indicating a composite entity that consists of other entities (e.g., a temperature/humidity sensor that consists of a temperature sensor and a humidity sensor)"
+    },
+    "http://www.w3.org/2004/02/skos/core#broader": {
+        "description": ""
+    },
+    "https://saref.etsi.org/core/hasProperty": {
+        "description": "Links a feature kind or a feature of interest to one of its properties."
+    }
+}

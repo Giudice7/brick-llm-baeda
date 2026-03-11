@@ -12,9 +12,9 @@
     "qudtqk": "http://qudt.org/vocab/quantitykind/",
     "brick": "https://brickschema.org/schema/Brick#",
     "ref": "https://brickschema.org/schema/Brick/ref#",
-    "saref": "https://w3id.org/saref#",
-    "s4bldg": "https://w3id.org/def/saref4bldg#",
-    "s4syst": "https://w3id.org/def/saref4syst#",
+    "saref": "https://saref.etsi.org/core/",
+    "s4bldg": "https://saref.etsi.org/saref4bldg/",
+    "s4syst": "https://saref.etsi.org/saref4syst/",
     "s4ener": "https://w3id.org/saref4ener#",
     "s4grid": "https://w3id.org/saref4grid#"
 }

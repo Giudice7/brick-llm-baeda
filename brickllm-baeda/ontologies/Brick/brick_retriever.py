@@ -1,5 +1,6 @@
-import rdflib
+import os
 import yaml
+import rdflib
 from rdflib.namespace import RDF, RDFS, OWL, Namespace
 from typing import List, Dict, Any, Set
 from ontologies.onto_retriever import OntoRetriever
@@ -7,7 +8,9 @@ from ontologies.onto_retriever import OntoRetriever
 SH = Namespace("http://www.w3.org/ns/shacl#")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 
-with open("config.yaml", "r") as f:
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(base_dir, "config.yaml"), "r") as f:
     config = yaml.safe_load(f)
 
 IGNORED_URIS = config["uris_to_exclude"]

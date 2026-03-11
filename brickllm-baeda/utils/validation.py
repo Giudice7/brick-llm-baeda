@@ -181,13 +181,9 @@ def validate_graph(graph: rdflib.Graph, ontology_name: str, data_ns: str) -> tup
     """
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     ontology_path = os.path.join(base_dir, "ontologies", ontology_name, "ontology.ttl")
-    enrichment_path = os.path.join(base_dir, "ontologies", ontology_name, "enrichment.ttl")
 
     ontology_graph = rdflib.Graph()
     ontology_graph.parse(ontology_path, format="turtle")
-
-    if os.path.exists(enrichment_path):
-        ontology_graph.parse(enrichment_path, format="turtle")
 
     if ontology_name.lower() == "brick":
         fix_shacl_violations(ontology_graph)
@@ -196,6 +192,7 @@ def validate_graph(graph: rdflib.Graph, ontology_name: str, data_ns: str) -> tup
 
     conforms, results_graph, results_text = validate(
         graph_inference,
+        ont_graph=ontology_graph,
         shacl_graph=ontology_graph,
         allow_infos=True,
         allow_warnings=True,
