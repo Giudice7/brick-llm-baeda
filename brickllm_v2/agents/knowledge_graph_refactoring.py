@@ -94,8 +94,8 @@ def knowledge_graph_refactoring_agent(state: WorkflowState, config: RunnableConf
         3. Use the `add_triple` and `delete_triple` tools to fix the graph so it conforms to the ontology.
         4. Do not invent properties or classes, always use the information provided into the context dictionary and the current graph snapshot to make your decisions.
         
-        IMPORTANT RULE:
-        When an error says that a certain value is not of a specific class, the solution usually is not to add that class to the value, but to identify and fix the root cause of the error, which is often that the value is an instance of a wrong class, or that the two entities in the triple are not connected by the correct property. Always analyze the error deeply and check the supported rules before making changes.
+        # IMPORTANT RULE:
+        When an error says that a certain value is not of a specific class, the solution usually is not to add the class type as stated in the error message,  but to change the subject or object entity type, or that the two entities in the triple are not connected by the correct property. Always analyze the error deeply and check the supported rules before making changes.
         """
 
     agent = create_agent(

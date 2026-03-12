@@ -23,7 +23,7 @@ An Entity is a digital representation of any physical, logical, or virtual item 
 
 Brick usually provides very detailed entity classifications. For instance, Brick define classes such as `brick:Air_Handling_Unit`, `brick:Supply_Air_Temperature_Sensor`, etc.
 
-## 3. Relationship Philosophy
+## Relationship Philosophy
 Relationships express how entities interact and are associated with each other. Brick relationships outline several building perspectives:
 
 * **Composition:** What things make up other things. 

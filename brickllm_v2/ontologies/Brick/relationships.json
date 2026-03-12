@@ -315,7 +315,7 @@
         "description": ""
     },
     "https://brickschema.org/schema/Brick#ambientTemperatureOfMeasurement": {
-        "description": "The ambient temperature at which the power input was measured The ambient temperature at which the current input was measured The ambient temperature at which the voltage was measured"
+        "description": "The ambient temperature at which the voltage was measured The ambient temperature at which the power input was measured The ambient temperature at which the current input was measured"
     },
     "https://brickschema.org/schema/Brick#area": {
         "description": "Entity has 2-dimensional area"

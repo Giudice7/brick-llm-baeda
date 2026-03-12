@@ -7,6 +7,7 @@ from langchain_core.tools import StructuredTool
 from langchain_core.tools import create_schema_from_function
 from langchain_core.messages import SystemMessage
 from langgraph.graph.state import CompiledStateGraph
+from langchain.agents.middleware import SummarizationMiddleware
 from loguru import logger
 
 from ..schemas import IdentifiedEntities
@@ -14,7 +15,7 @@ from ..tools.hierarchy import retrieve_subclasses
 from ..utils.artifacts import get_initial_state
 
 
-def extract_entities_agent(llm: BaseChatModel, ontology_name: str, user_instructions: str = "") -> CompiledStateGraph:
+def extract_entities_agent(llm: BaseChatModel, ontology_name: str, user_input: str, user_instructions: str = "") -> CompiledStateGraph:
     """
     Orchestrates the entity extraction using the provided state and configuration.
 
@@ -59,12 +60,15 @@ def extract_entities_agent(llm: BaseChatModel, ontology_name: str, user_instruct
     {json.dumps(initial_hierarchy_state)}
     
     # GENERAL INSTRUCTIONS:
-    If a term in your current hierarchy matches the user's entity but might be too broad, use the ExpandOntologyNode tool to retrieve its children and choose the proper class.
+    Your task is to match the user input with the terms of the ontology above. If a term in your current hierarchy matches the user's entity but might be too broad, use the ExpandOntologyNode tool to retrieve its children and choose the proper class.
     Stop exploring a branch when you find the best matching term, or when the tool returns an empty list. To be sure, expand always one more time after finding a match, to check if there are more specific subclasses.
+    
+    # USER INPUT:
+    {user_input}
     
     {user_instructions}
     
-    Once you have finished exploring and have your final list, return the result as a structured output matching the IdentifiedEntities schema.
+    Once you have finished exploring and have your final list, return the result as a structured output matching the IdentifiedEntities schema. Do not invent any term, use only the one you found in the hierarchy or in the expanded version.
     """
 
     node_expansion_tool = StructuredTool(
@@ -75,10 +79,17 @@ def extract_entities_agent(llm: BaseChatModel, ontology_name: str, user_instruct
                                                 parse_docstring=True)
     )
 
+    summary_middleware = SummarizationMiddleware(
+        model=llm,
+        trigger=[("messages", 5), ("tokens", 10000)],
+        keep=("messages", 5)
+    )
+
     agent = create_agent(
         name="entity_expert",
         model=llm,
         tools=[node_expansion_tool],
+        middleware=[summary_middleware],
         system_prompt=SystemMessage(content=system_message),
         response_format=IdentifiedEntities
     )

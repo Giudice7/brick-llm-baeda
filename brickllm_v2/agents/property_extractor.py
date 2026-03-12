@@ -2,6 +2,7 @@ import os
 import json
 
 from langchain.agents import create_agent
+from langchain.agents.middleware import SummarizationMiddleware
 from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import SystemMessage
 from langgraph.graph.state import CompiledStateGraph
@@ -10,7 +11,7 @@ from loguru import logger
 from ..schemas import IdentifiedProperties
 
 
-def extract_data_properties_agent(llm: BaseChatModel, ontology_name: str, user_instructions: str = "") -> CompiledStateGraph:
+def extract_data_properties_agent(llm: BaseChatModel, ontology_name: str, user_input: str, user_instructions: str = "") -> CompiledStateGraph:
     if len(user_instructions) > 0:
         user_instructions = f"# USER INSTRUCTIONS:\n{user_instructions}\n\n"
     else:
@@ -45,15 +46,27 @@ def extract_data_properties_agent(llm: BaseChatModel, ontology_name: str, user_i
 
     # GENERAL INSTRUCTIONS:
     Analyze the user's text carefully. If the user mentions or implies any of these properties, select the corresponding URI.
+    
+    # USER INPUT:
+    {user_input}
+    
     {user_instructions}
 
     Return the result as a structured output matching the IdentifiedProperties schema. 
     """
 
+    summary_middleware = SummarizationMiddleware(
+        model=llm,
+        trigger=[("messages", 5), ("tokens", 10000)],
+        keep=("messages", 5)
+    )
+
+
     agent = create_agent(
         name="data_property_expert",
         model=llm,
         tools=[],
+        middleware=[summary_middleware],
         system_prompt=SystemMessage(content=system_message),
         response_format=IdentifiedProperties
     )

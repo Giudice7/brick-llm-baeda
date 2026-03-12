@@ -2,11 +2,12 @@ import os
 import json
 from typing import List, Dict, Any
 
-from langchain_core.tools import StructuredTool
+from langchain_core.tools import StructuredTool, tool
 from langchain_core.tools import create_schema_from_function
 from langchain_core.messages import HumanMessage
 from langchain_core.runnables import RunnableConfig
-from langgraph_supervisor import create_supervisor
+from langchain.agents import create_agent
+from langchain.agents.middleware import ToolRetryMiddleware
 from loguru import logger
 
 from ..states import WorkflowState
@@ -26,6 +27,14 @@ def semantic_extractor(state: WorkflowState, config: RunnableConfig) -> Dict[str
     ontology_name = state.get("ontology_name", "Brick")
     llm = config.get("configurable", {}).get("model")
 
+    user_instructions = f"""
+    When extracting the ontology concepts, follow the instructions provided by the user for the different stages:
+    {state.get("user_instructions_entity_extractor", "")}
+    {state.get("user_instructions_relationship_extractor", "")}
+    {state.get("user_instructions_property_extractor", "")}
+    {state.get("user_instructions_kg_development", "")}
+    """
+
     logger.info(f"🧠 Starting Supervisor Orchestration for {ontology_name} mapping")
 
     # Load ontology description for the prompt context
@@ -35,29 +44,47 @@ def semantic_extractor(state: WorkflowState, config: RunnableConfig) -> Dict[str
     entity_expert = extract_entities_agent(
         llm=llm,
         ontology_name=ontology_name,
+        user_input=user_input,
         user_instructions=state.get("user_instructions_entity_extractor", "")
     )
 
     object_property_expert = extract_object_properties_agent(
         llm=llm,
         ontology_name=ontology_name,
+        user_input=user_input,
         user_instructions=state.get("user_instructions_relationship_extractor", "")
     )
 
     data_property_expert = extract_data_properties_agent(
         llm=llm,
         ontology_name=ontology_name,
+        user_input=user_input,
         user_instructions=state.get("user_instructions_property_extractor", "")
     )
+
+    @tool("extract_entities", description="Delegate instructions to the entity expert. The tool is already aware of the user input and the ontology context, so just ask to extract the relevant entities for the user's request, or precise request if validation is already done once. DO NOT REPEAT USER INPUT. You standard message will be: 'Extract the relevant entities for the user's request'")
+    def call_entity_expert(query: str) -> str:
+        result = entity_expert.invoke({"messages": [{"role": "user", "content": query}]})
+        return result["messages"][-1].content
+
+    @tool("extract_object_properties", description="Delegate instructions to the object property expert. The tool is already aware of the user input and the ontology context, so just ask to extract the relevant object properties for the user's request, or precise request if validation is already done once. DO NOT REPEAT USER INPUT. You standard message will be: 'Extract the relevant entities for the user's request'")
+    def call_object_property_expert(query: str) -> str:
+        result = object_property_expert.invoke({"messages": [{"role": "user", "content": query}]})
+        return result["messages"][-1].content
+
+    @tool("extract_data_properties", description="Delegate instructions to the data property expert. The tool is already aware of the user input and the ontology context, so just ask to extract the relevant data properties for the user's request, or precise request if validation is already done once. DO NOT REPEAT USER INPUT. You standard message will be: 'Extract the relevant entities for the user's request'")
+    def call_data_property_expert(query: str) -> str:
+        result = data_property_expert.invoke({"messages": [{"role": "user", "content": query}]})
+        return result["messages"][-1].content
 
     supervisor_prompt = f"""
     You are the Chief Ontology Orchestrator for Ontology Mapping. Your objective is to translate user's input into a semantic T-Box (entities and properties/relationships) using the {ontology_name} ontology.
     
     # AVAILABLE EXPERTS:
     You have access to three experts to assist you in this task:
-    1. entity_expert: Responsible for identifying the most specific URIs for physical objects, spaces, or conceptual nodes starting from ontological concepts.
-    2. object_property_expert: Responsible for identifying the object properties (URIs) that can logically connect the extracted entities.
-    3. data_property_expert: Responsible for identifying the data properties (URIs) that can be used to describe attributes of the extracted entities.
+    1. entitiy_expert: Responsible for identifying the most specific URIs for physical objects, spaces, or conceptual nodes starting from ontological concepts.
+    2. object_properties_expert: Responsible for identifying the object properties (URIs) that can logically connect the extracted entities.
+    3. data_properties_expert: Responsible for identifying the data properties (URIs) that can be used to describe attributes of the extracted entities.
     Each expert might be equipped with tools to expand their search within the ontology.
     
     # ORCHESTRATION WORKFLOW & RULES:
@@ -84,10 +111,9 @@ def semantic_extractor(state: WorkflowState, config: RunnableConfig) -> Dict[str
     - If an expert explicitly confirms a concept genuinely does not exist in the ontology after thorough searching, accept this limitation to avoid infinite loops.
     
     **STEP 5: FINALIZATION**
-    Once the JSON mapping shows a sufficiently connected T-Box representing the user's request, or you reach the 2-loop limit, terminate the process. Return the finalized extraction using the following structured output format:
-    - selected_classes: [List of URIs str]
-    - selected_object_properties: [List of URIs str]
-    - selected_data_properties: [List of URIs]
+    Once the JSON mapping shows a sufficiently connected T-Box representing the user's request, or you reach the 2-loop limit, terminate the process. Return the finalized extraction using the output format provided.
+    
+    {user_instructions}
     """
 
     onto_retriever = onto_retriever_mapping[ontology_name]
@@ -99,28 +125,27 @@ def semantic_extractor(state: WorkflowState, config: RunnableConfig) -> Dict[str
         args_schema=create_schema_from_function(func=onto_retriever.get_supported_relationships,
                                                 model_name="CheckSupportedRelationshipsSchema", parse_docstring=True))
 
-    supervisor_workflow = create_supervisor(
-        agents=[entity_expert, object_property_expert, data_property_expert],
-        model=llm,
-        prompt=supervisor_prompt,
-        tools=[check_supported_relationships_tool],
-        parallel_tool_calls=True
+
+    def on_failure_func(Exception):
+        return "Reached the maximum number of retries for the experts. Continue the workflow with the current information and finalize the output. Do not call this expert again."
+
+    middleware_experts = ToolRetryMiddleware(
+        tools=[call_entity_expert, call_object_property_expert, call_data_property_expert, check_supported_relationships_tool],
+        max_retries=2,
+        on_failure=on_failure_func
     )
 
-    app = supervisor_workflow.compile()
 
-    # response = app.invoke(
-    #     {"messages": [{"role": "user", "content": user_input}]},
-    #     config=config
-    # )
-
-    # for message in response["messages"]:
-    #     message.pretty_print()
-    #     if message.name == "supervisor":
-    #         final_message = message.content
+    supervisor = create_agent(
+        model=llm,
+        system_prompt=supervisor_prompt,
+        tools=[check_supported_relationships_tool, call_entity_expert, call_object_property_expert, call_data_property_expert],
+        middleware=[middleware_experts],
+        response_format=IdentifiedOntologyConcepts
+    )
 
     messages_history = [HumanMessage(content=user_input)]
-    for event in app.stream(input={"messages": [{"role": "user", "content": user_input}]},
+    for event in supervisor.stream(input={"messages": [{"role": "user", "content": user_input}]},
                             config=config, stream_mode="updates"):
 
         for node_name, node_output in event.items():
@@ -140,8 +165,9 @@ def semantic_extractor(state: WorkflowState, config: RunnableConfig) -> Dict[str
                         messages_history.append(new_messages)
                         last_msg = new_messages
 
-                    if node_name == "supervisor":
+                    if last_msg.type == "ai":
                         final_message = last_msg.content
+
 
     parsed_data = IdentifiedOntologyConcepts.model_validate_json(final_message)
     input_summary, output_summary = calculate_token_usage(messages_history)

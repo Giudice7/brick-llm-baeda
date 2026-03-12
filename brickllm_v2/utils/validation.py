@@ -192,7 +192,6 @@ def validate_graph(graph: rdflib.Graph, ontology_name: str, data_ns: str) -> tup
 
     conforms, results_graph, results_text = validate(
         graph_inference,
-        ont_graph=ontology_graph,
         shacl_graph=ontology_graph,
         allow_infos=True,
         allow_warnings=True,
